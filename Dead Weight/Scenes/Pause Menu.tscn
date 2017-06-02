@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Scripts/Pause Menu.gd" type="Script" id=1]
+
+[node name="Pause_Menu" type="Panel"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 210.0
+margin/top = 140.0
+margin/right = 810.0
+margin/bottom = 640.0
+script/script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 0.0
+margin/right = 50.0
+margin/bottom = 420.0
+text = "PAUSED"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Resume Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 250.0
+margin/top = 100.0
+margin/right = 350.0
+margin/bottom = 120.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Resume"
+flat = false
+
+[node name="Quit Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 250.0
+margin/top = 400.0
+margin/right = 350.0
+margin/bottom = 420.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+
+[connection signal="pressed" from="Resume Button" to="." method="_on_Resume_Button_pressed"]
+
+[connection signal="pressed" from="Quit Button" to="." method="_on_Quit_Button_pressed"]
+
+
