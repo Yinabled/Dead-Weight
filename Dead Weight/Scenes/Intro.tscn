@@ -1013,6 +1013,7 @@ color/color_ramp = SubResource( 2 )
 
 [node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
 
+transform/pos = Vector2( 142.063, 96.59 )
 params/volume_db = 0.0
 params/pitch_scale = 1.0
 params/attenuation/min_distance = 1.0
