@@ -24,7 +24,9 @@ var right_scene
 #   "scene_name": [left, top, right, bottom, ground_height, left_scene, right_scene, left_enter]
 var scene_resources = {
 	"Intro": [0, 0, 2800, 1000, 932, null, "Outside_Cabin", true],
-	"Outside_Cabin": [-1440, -530, 1440, 541, 424, "Intro", null, true]
+	"Outside_Cabin": [-1440, -530, 1440, 541, 424, "Intro", null, true],
+	"rorschachtest": [0, 0, 2500, 2500, 2100, null, null, true],
+	"TESTMEME": [0, 0, 300, 300, 140, null, null, true]
 }
 
 
@@ -81,11 +83,21 @@ func _fixed_process(delta):
 		var motion = velocity * delta
 		motion = move(motion)
 		
+		var floor_velocity = Vector2()
+		
 		if (is_colliding()):
 			var n = get_collision_normal()
 			motion = n.slide(motion)
 			velocity = n.slide(velocity)
 			move(motion)
+			print("test " + str(get_collider_metadata()))
+		
+		floor_velocity = get_collider_velocity()
+		
+		if (floor_velocity != Vector2()):
+			move(floor_velocity * delta)
+			
+		#print(floor_velocity)
 		
 		#Playing animation if it is new
 		if (new_animation != current_animation):
