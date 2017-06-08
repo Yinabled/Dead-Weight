@@ -20,11 +20,6 @@ func _process(delta):
 
 func _input(event):
 	if(Input.is_action_pressed("ui_cancel") && pause_Timer < 0):
-#		var screen = get_tree().get_root().get_rect().size
-#		var player = get_parent().get_parent()
-#		set_pos(player.get_node("Camera2D").get_camera_screen_center() + screen/2)
-#		print(get_pos())
-		
 		_on_Resume_Button_pressed()
 		pause_Timer = animation_Time
 
@@ -36,6 +31,19 @@ func _on_Resume_Button_pressed():
 	else:
 		self.show()
 		get_tree().set_pause(true)
+
+
+func _on_Restart_Scene_Button_pressed():
+	Stage_manager.change_stage(get_tree().get_current_scene().get_name(), true, true)
+	self.hide()
+	get_tree().set_pause(false)
+
+
+func _on_Restart_Game_Button_pressed():
+	Stage_manager.change_stage("Intro_cutscene", true, true)
+	self.hide()
+	get_tree().set_pause(false)
+
 
 func _on_Quit_Button_pressed():
 	get_tree().quit()

@@ -11,8 +11,7 @@ var velocity = Vector2()
 var direction = ""
 var current_animation = ""
 var new_animation = "Idle"
-var current_sfx = ""
-var new_sfx = ""
+var bandaged
 
 var left_limit = -10000000
 var right_limit = 10000000
@@ -23,8 +22,9 @@ var right_scene
 #Scene intialization resources
 #   "scene_name": [left, top, right, bottom, ground_height, left_scene, right_scene, left_enter]
 var scene_resources = {
-	"Intro": [0, 0, 2800, 1000, 932, null, "Outside_Cabin", true],
-	"Outside_Cabin": [-1440, -530, 1440, 541, 424, "Intro", null, true]
+	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
+	"Outside_Cabin": [-1440, -540, 1440, 540, 402, "Intro", null, true],
+	"Puzzle_1": [0, 0, 2075, 2550, 1010, null, null, true]
 }
 
 
@@ -32,7 +32,12 @@ func _ready():
 	init_scene(scene_resources[get_parent().get_name()])
 	feet = get_node("Feet")
 	feet.add_exception(self)
-	get_node("AnimationPlayer").play("Idle")
+	
+	bandaged = Stage_manager.player_bandaged
+	if bandaged:
+		get_node("AnimationPlayer").play("Idle_bandaged")
+	else:
+		get_node("AnimationPlayer").play("Idle")
 	
 	set_fixed_process(true)
 
@@ -77,6 +82,11 @@ func _fixed_process(delta):
 			velocity.y += delta * GRAVITY * FALL_ACCEL
 			new_animation = "Jumping"
 		
+		if feet.is_colliding() && feet.get_collider().get_name().find("Moving_plat") != -1:
+			velocity.x += feet.get_collider().get_linear_velocity().x
+			if !Input.is_action_pressed("ui_up"):
+				velocity.y = feet.get_collider().get_linear_velocity().y
+		
 		#Actual movement
 		var motion = velocity * delta
 		motion = move(motion)
@@ -87,6 +97,14 @@ func _fixed_process(delta):
 			velocity = n.slide(velocity)
 			move(motion)
 		
+		#Converting animations to bandaged
+		if (new_animation == "Idle" && bandaged):
+			new_animation = "Idle_bandaged"
+		elif (new_animation == "Jumping" && bandaged):
+			new_animation = "Jumping_bandaged"
+		elif (new_animation == "Running" && bandaged):
+			new_animation = "Running_bandaged"
+		
 		#Playing animation if it is new
 		if (new_animation != current_animation):
 			get_node("AnimationPlayer").play(new_animation)
@@ -94,9 +112,9 @@ func _fixed_process(delta):
 		
 		#Checking if the player is exiting the scene
 		if (get_pos().x > right_limit + 24 && right_scene != null):
-			Stage_manager.change_stage(right_scene, true)
+			Stage_manager.change_stage(right_scene, true, true)
 		elif (get_pos().x < left_limit - 27 && left_scene != null):
-			Stage_manager.change_stage(left_scene, false)
+			Stage_manager.change_stage(left_scene, false, true)
 	
 
 

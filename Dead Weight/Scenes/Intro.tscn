@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Scenes/parallax.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Textures/forground.tex" type="Texture" id=3]
 [ext_resource path="res://Sprites/opening.tex" type="Texture" id=4]
 [ext_resource path="res://Audio Files/Soundtrack/rain_thunder_heavy.smp" type="Sample" id=5]
-[ext_resource path="res://Scripts/rain_thunder_heavy.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -59,7 +58,7 @@ transform/scale = Vector2( 0.55442, 0.55442 )
 z/z = 1
 texture = ExtResource( 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
 
 transform/pos = Vector2( 1084.11, 991.767 )
 transform/scale = Vector2( 39.2534, 1 )
@@ -75,7 +74,36 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+
+transform/pos = Vector2( 14.6634, -9.08826 )
+transform/scale = Vector2( 1.38358, 1 )
+z/z = 1
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left_barrier" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( -2, 500 )
+transform/rot = 90.0
+transform/scale = Vector2( 20, 1 )
+z/z = 1
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.38358, 0, 0, 1, 14.6634, -9.08826 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_barrier"]
 
 transform/pos = Vector2( 14.6634, -9.08826 )
 transform/scale = Vector2( 1.38358, 1 )
@@ -1021,6 +1049,5 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 3 )
 config/pitch_random = 0.0
-script/script = ExtResource( 6 )
 
 
