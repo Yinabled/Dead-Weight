@@ -4,7 +4,7 @@ onready var white = get_node("Overlay/Texture_White")
 onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
 var player_cutscene = true
-var player_bandaged = true
+var player_bandaged = false
 
 var left_enter = true
 var current_scene
@@ -12,7 +12,7 @@ var current_scene
 
 func _ready():
 	player_cutscene = true
-	get_node("Rain_Track").play("rain_thunder_heavy")
+	#get_node("Rain_Track").play("rain_thunder_heavy")
 	
 	white.hide()
 	anim.play("Fade from black 1s")

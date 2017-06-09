@@ -5,7 +5,8 @@ var pause_Timer = animation_Time
 
 
 func _ready():
-	var x  = (Globals.get("display/width") - get_size().x) / 2
+	#Centering pause menu
+	var x = (Globals.get("display/width") - get_size().x) / 2
 	var y = (Globals.get("display/height") - get_size().y) / 2
 	set_pos(Vector2(x, y))
 	
