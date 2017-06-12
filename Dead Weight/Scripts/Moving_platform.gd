@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var in_puzzle
+var in_puzzle = true
 
 #Speed in pixels per second, adjusted in AnimationPlayer
 export var speed = 0
@@ -16,8 +16,7 @@ func _ready():
 	speed = 0
 	
 	if !show_on_start:
-		in_puzzle = false
-		set_pos(get_pos() - Vector2(9000, 0))
+		set_in_puzzle(false)
 	else:
 		in_puzzle = true
 	
@@ -31,6 +30,7 @@ func _ready():
 
 
 func _process(delta):
+	
 	var movement = Vector2()
 	if horizontal:
 		movement = Vector2(speed*speed_multiplier*delta, 0)
@@ -47,8 +47,10 @@ func move():
 		get_node("AnimationPlayer").play("Move 12s")
 
 
-func show(show_platform):
+func set_in_puzzle(show_platform):
 	if show_platform && !in_puzzle:
+		in_puzzle = true
 		set_pos(get_pos() + Vector2(9000, 0))
 	elif !show_platform && in_puzzle:
+		in_puzzle = false
 		set_pos(get_pos() - Vector2(9000, 0))

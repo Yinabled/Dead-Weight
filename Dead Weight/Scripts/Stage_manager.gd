@@ -4,17 +4,18 @@ onready var white = get_node("Overlay/Texture_White")
 onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
 var player_cutscene = true
-var player_bandaged = false
+var player_bandaged = true
 
 var left_enter = true
 var current_scene
 
 
 func _ready():
-	player_cutscene = true
-	#get_node("Rain_Track").play("rain_thunder_heavy")
+#	player_cutscene = true
+#	
+#	white.hide()
+	change_stage(get_tree().get_current_scene().get_name(), true, false)
 	
-	white.hide()
 	anim.play("Fade from black 1s")
 	yield(anim, "finished")
 	player_cutscene = false
@@ -47,6 +48,12 @@ func change_stage(new_scene, entering_left, fade):
 			get_node("Montage_Track").play()
 	else:
 		get_node("Montage_Track").stop()
+	
+	#Set puzzle timer
+	if (new_scene.find("Puzzle") > -1):
+		Puzzle_Timer.get_node("Timer_Sprite").restart_timer()
+	else:
+		Puzzle_Timer.get_node("Timer_Sprite").restart_timer()
 	
 	#Fade back in
 	if (prev_scene == "Intro_cutscene"):

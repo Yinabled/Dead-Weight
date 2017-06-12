@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://Scripts/Pause Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Buttons/Pause_Box.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/8-BIT_Size-32.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Fonts/l_10646_small.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://Sprites/Buttons/Base_Button.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Buttons/Pressed_Button.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Buttons/Hover_Button.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/8-BIT_Size-26.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://Fonts/8-BIT_Low-Space_20.fnt" type="BitmapFont" id=9]
+
+[node name="Pause_Menu" type="Panel"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 210.0
+margin/top = 140.0
+margin/right = 810.0
+margin/bottom = 640.0
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 300, 250 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 50.0
+margin/top = 0.0
+margin/right = 50.0
+margin/bottom = 420.0
+custom_fonts/font = ExtResource( 3 )
+text = "PAUSED"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Restart Scene Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 200.0
+margin/top = 241.0
+margin/right = 400.0
+margin/bottom = 276.0
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Restart Scene"
+flat = false
+
+[node name="New Resume Button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 139.0
+margin/top = 80.0
+margin/right = 461.0
+margin/bottom = 134.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Text" type="Label" parent="New Resume Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = -2.0
+margin/right = 322.0
+margin/bottom = 52.0
+custom_fonts/font = ExtResource( 8 )
+text = "Resume"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="New Restart Game Button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 139.0
+margin/top = 150.0
+margin/right = 461.0
+margin/bottom = 204.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Text" type="Label" parent="New Restart Game Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = -1.0
+margin/right = 322.0
+margin/bottom = 53.0
+custom_fonts/font = ExtResource( 9 )
+text = "Restart Game"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="New Quit Button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 138.0
+margin/top = 390.0
+margin/right = 460.0
+margin/bottom = 444.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Text" type="Label" parent="New Quit Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = -2.0
+margin/right = 322.0
+margin/bottom = 52.0
+custom_fonts/font = ExtResource( 8 )
+text = "Quit"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="Restart Scene Button" to="." method="_on_Restart_Scene_Button_pressed"]
+
+[connection signal="pressed" from="New Resume Button" to="." method="_on_Resume_Button_pressed"]
+
+[connection signal="pressed" from="New Restart Game Button" to="." method="_on_Restart_Game_Button_pressed"]
+
+[connection signal="pressed" from="New Quit Button" to="." method="_on_Quit_Button_pressed"]
+
+
