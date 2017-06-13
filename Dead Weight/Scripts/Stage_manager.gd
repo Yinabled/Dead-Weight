@@ -4,17 +4,15 @@ onready var white = get_node("Overlay/Texture_White")
 onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
 var player_cutscene = true
-var player_bandaged = false
+var player_bandaged = true
 
 var left_enter = true
 var current_scene
 
 
 func _ready():
-	player_cutscene = true
-	#get_node("Rain_Track").play("rain_thunder_heavy")
+	change_stage(get_tree().get_current_scene().get_name(), true, false)
 	
-	white.hide()
 	anim.play("Fade from black 1s")
 	yield(anim, "finished")
 	player_cutscene = false
@@ -22,8 +20,8 @@ func _ready():
 
 func change_stage(new_scene, entering_left, fade):
 	player_cutscene = true
-	current_scene = new_scene
 	var prev_scene = get_tree().get_current_scene().get_name()
+	current_scene = new_scene
 	
 	#Fade out
 	if fade:
@@ -35,7 +33,7 @@ func change_stage(new_scene, entering_left, fade):
 	var stage_path = "res://Scenes/" + new_scene + ".tscn"
 	get_tree().change_scene(stage_path)
 	
-	#Set ambient sound/music
+	#Setting ambient SOUND/MUSIC
 	if (new_scene == "Intro_cutscene" || new_scene == "Intro"):
 		if (prev_scene != "Intro_cutscene"):
 			get_node("Rain_Track").play("rain_thunder_heavy")
@@ -44,9 +42,22 @@ func change_stage(new_scene, entering_left, fade):
 	
 	if (new_scene == "Outside_Cabin"):
 		if (prev_scene != "Inside_Cabin"):
-			get_node("Montage_Track").play()
+			get_node("Cabin_Track").play()
 	else:
-		get_node("Montage_Track").stop()
+		get_node("Cabin_Track").stop()
+	
+	if is_puzzle():
+		print(prev_scene.find("Puzzle"))
+		if prev_scene.find("Puzzle") == -1:
+			get_node("Puzzle_Track").play()
+	else:
+		get_node("Puzzle_Track").stop()
+	
+	#Set puzzle timer
+	if (new_scene.find("Puzzle") > -1):
+		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
+	else:
+		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
 	
 	#Fade back in
 	if (prev_scene == "Intro_cutscene"):
@@ -83,3 +94,10 @@ func fade(dark, fade_in):
 		anim.play("Fade from white 1s")
 	else:
 		anim.play("Fade to white 1s")
+
+
+func is_puzzle():
+	if current_scene.find("Puzzle") > -1:
+		return true
+	else:
+		return false
