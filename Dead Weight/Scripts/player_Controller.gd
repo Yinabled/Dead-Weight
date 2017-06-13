@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const GRAVITY = 600.0
 const FALL_ACCEL = 4
-var WALK_SPEED = 400
+var WALK_SPEED = 300
 const JUMP_HEIGHT = 1000
 var feet
 

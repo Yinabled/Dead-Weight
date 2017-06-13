@@ -47,8 +47,7 @@ func change_stage(new_scene, entering_left, fade):
 		get_node("Cabin_Track").stop()
 	
 	if is_puzzle():
-		print(prev_scene.find("Puzzle"))
-		if prev_scene.find("Puzzle") == -1:
+		if !get_node("Puzzle_Track").is_playing():
 			get_node("Puzzle_Track").play()
 	else:
 		get_node("Puzzle_Track").stop()
@@ -57,7 +56,7 @@ func change_stage(new_scene, entering_left, fade):
 	if (new_scene.find("Puzzle") > -1):
 		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
 	else:
-		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
+		Puzzle_HUD.get_node("Timer_Sprite").stop_timer()
 	
 	#Fade back in
 	if (prev_scene == "Intro_cutscene"):

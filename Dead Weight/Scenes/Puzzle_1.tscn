@@ -44,7 +44,6 @@ transform/pos = Vector2( 1000, 425 )
 speed_multiplier = 6
 horizontal = false
 short = false
-show_on_start = false
 
 [node name="Moving_plat1" parent="." instance=ExtResource( 4 )]
 

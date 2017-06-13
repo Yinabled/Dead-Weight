@@ -253,6 +253,9 @@ z/z = 1
 texture = ExtResource( 2 )
 hframes = 3
 frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 
@@ -267,16 +270,13 @@ __meta__ = {
 
 [node name="Feet" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -13.6467, 38.7925 )
+transform/pos = Vector2( -13.7161, 39.0008 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.612968, 0.378673 )
 enabled = true
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
