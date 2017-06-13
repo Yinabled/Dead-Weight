@@ -5,6 +5,9 @@ const FALL_ACCEL = 4
 var WALK_SPEED = 400
 const JUMP_HEIGHT = 1000
 var feet
+var left_collider
+var right_collider
+var motion
 
 var velocity = Vector2()
 
@@ -12,6 +15,7 @@ var direction = ""
 var current_animation = ""
 var new_animation = "Idle"
 var bandaged
+var collider
 
 var left_limit = -10000000
 var right_limit = 10000000
@@ -24,7 +28,8 @@ var right_scene
 var scene_resources = {
 	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
 	"Outside_Cabin": [-1440, -540, 1440, 540, 402, "Intro", null, true],
-	"Puzzle_1": [-25, -25, 2100, 2600, 1010, null, null, true]
+	"Puzzle_1": [-25, -25, 2100, 2600, 1010, null, null, true],
+	"TESTSCENE": [0, 0, 700, 350, 70, null, null, true]
 }
 
 
@@ -32,6 +37,10 @@ func _ready():
 	init_scene(scene_resources[get_parent().get_name()])
 	feet = get_node("Feet")
 	feet.add_exception(self)
+	left_collider = get_node("Left")
+	left_collider.add_exception(self)
+	right_collider = get_node("Right")
+	right_collider.add_exception(self)
 	
 	bandaged = Stage_manager.player_bandaged
 	if bandaged:
@@ -87,15 +96,34 @@ func _fixed_process(delta):
 			if !Input.is_action_pressed("ui_up"):
 				velocity.y = feet.get_collider().get_linear_velocity().y
 		
+
+		
 		#Actual movement
-		var motion = velocity * delta
+		motion = velocity * delta
 		motion = move(motion)
 		
-		if (is_colliding()):
+		if (feet.is_colliding()):
 			var n = get_collision_normal()
 			motion = n.slide(motion)
 			velocity = n.slide(velocity)
+#			if left_collider.is_colliding():
+#				print(left_collider.get_collider().get_name())
+#			
+#			if left_collider.is_colliding() && left_collider.get_collider().get_name().find("Box") != -1 && Input.is_action_pressed("ui_ctrl") && right:
+#				motion.x = 100 #Box MOVE_SPEED variable
+#				print("LEFT GO FAM")
+#				left_collider.get_collider().move(motion*delta)
+#			if right_collider.is_colliding() && right_collider.get_collider().get_name().find("Box") != -1 && Input.is_action_pressed("ui_ctrl") && left:
+#				motion.x = -100 #Box MOVE_SPEED variable
+#				right_collider.get_collider().move(motion*delta)
+#				print("RIGHT GO FAM")
+#			move(motion * delta)
 			move(motion)
+#			collider = feet.get_collider()
+#			print(collider.get_type())
+#			if(collider extends RigidBody2D):
+#				velocity.x /= 2
+#				get_parent().get_node("Box_rigid").set_linear_velocity(velocity)
 		
 		#Converting animations to bandaged
 		if (new_animation == "Idle" && bandaged):
@@ -116,7 +144,8 @@ func _fixed_process(delta):
 		elif (get_pos().x < left_limit - 27 && left_scene != null):
 			Stage_manager.change_stage(left_scene, false, true)
 	
-
+func get_motion():
+	return velocity
 
 #Initializing the camera and scene limits
 func init_scene(var arr):

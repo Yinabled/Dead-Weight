@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pause Menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Brain_Timer.png" type="Texture" id=2]
 
 [node name="Pause_HUD" type="CanvasLayer"]
 
@@ -15,5 +16,11 @@ margin/left = 362.0
 margin/top = 294.0
 margin/right = 962.0
 margin/bottom = 794.0
+
+[node name="Puzzle_Timer" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1113.15, 347.789 )
+texture = ExtResource( 2 )
+hframes = 13
 
 

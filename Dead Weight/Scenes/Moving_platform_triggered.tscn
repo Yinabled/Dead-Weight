@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Scripts/Moving_platform.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Moving_platform_triggered.gd" type="Script" id=1]
 [ext_resource path="res://Textures/blackTile.tex" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -12,7 +12,7 @@ extents = Vector2( 25, 25 )
 
 resource/name = "Move 12s"
 length = 12.0
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:speed")
@@ -29,7 +29,7 @@ tracks/0/keys = {
 
 resource/name = "Move 6s"
 length = 6.0
-loop = true
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:speed")
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "values": [ 0, 102, 0, 0, -102, 0, 0 ]
 }
 
-[node name="Moving_platform" type="RigidBody2D"]
+[node name="Moving_platform_triggered" type="RigidBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -66,10 +66,11 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
-speed = 5
+speed = 0
 speed_multiplier = 3
 horizontal = true
 short = true
+connected_button = "button"
 move_on_start = true
 show_on_start = true
 

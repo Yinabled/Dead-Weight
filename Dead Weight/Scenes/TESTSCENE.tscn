@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Box_rigid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/beer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/beer.tex" type="Texture" id=6]
+[ext_resource path="res://Scenes/Moving_platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Moving_platform_triggered.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Disappearing_platform.tscn" type="PackedScene" id=10]
+
+[node name="TESTSCENE" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 297.938, 249.063 )
+
+[node name="Box_rigid" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 219.472, 304.963 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 98.8586, 125.966 )
+
+[node name="StaticBody2D1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 388.968, 672.633 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 983.772, 621.906 )
+transform/scale = Vector2( 0.0515859, 1 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1217.53, 621.906 )
+transform/scale = Vector2( 0.0515859, 1 )
+
+[node name="Box" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 546.744, 334.741 )
+
+[node name="beer" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 37.0
+
+[node name="beer7" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 37.0
+
+[node name="beer1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 45.0
+
+[node name="beer7 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 45.0
+
+[node name="beer2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 315.0
+
+[node name="beer7 6" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 315.0
+
+[node name="beer3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 280.0
+
+[node name="beer7 3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 280.0
+
+[node name="beer4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 15.0
+
+[node name="beer7 4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 15.0
+
+[node name="beer5" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 95.0
+
+[node name="beer7 5" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1084.34, 234.691 )
+transform/rot = 95.0
+
+[node name="beer6" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1089.49, 221.459 )
+transform/rot = 77.0
+
+[node name="beer7 7" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1099.78, 203.817 )
+transform/rot = 260.014
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 642.127, -57.2789 )
+transform/rot = -2.13184
+config/amount = 300
+config/lifetime = 10.0
+config/process_mode = 1
+config/texture = ExtResource( 6 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 20.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 200.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 1.0
+randomness/spread = 1.0
+randomness/linear_velocity = 1.0
+randomness/spin_velocity = 1.0
+randomness/orbit_velocity = 1.0
+randomness/gravity_direction = 0.5
+randomness/gravity_strength = 0.2
+randomness/initial_angle = 1.0
+
+[node name="Moving_platform" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 371.554, 102.035 )
+
+[node name="Moving_platform_triggered" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1333.48, 479.298 )
+move_on_start = false
+
+[node name="button" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 774.965, 369.11 )
+
+[node name="Disappearing_platform" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 725.094, 291.182 )
+
+

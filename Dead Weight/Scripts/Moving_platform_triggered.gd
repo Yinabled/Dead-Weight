@@ -7,10 +7,12 @@ export var speed = 0
 export var speed_multiplier = 3
 export var horizontal = true
 export var short = true
+export var connected_button = "button"
 
-export var move_on_start = true
+export var move_on_start = false
 export var show_on_start = true
 
+onready var button = get_parent().get_node(connected_button)
 
 func _ready():
 	speed = 0
@@ -27,11 +29,15 @@ func _ready():
 		else:
 			get_node("AnimationPlayer").play("Move 12s")
 	
+	button.connect("button_pressed", self, "_on_button_pressed")
+	
 	set_process(true)
 
 
 func _process(delta):
+
 	var movement = Vector2()
+
 	if horizontal:
 		movement = Vector2(speed*speed_multiplier*delta, 0)
 	else:
@@ -39,6 +45,8 @@ func _process(delta):
 		
 	set_pos(get_pos() + movement)
 
+func _on_button_pressed():
+	move()
 
 func move():
 	if short:
