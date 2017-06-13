@@ -10,7 +10,7 @@
 [ext_resource path="res://Audio Files/SFX/jumping_on_grass.smp" type="Sample" id=8]
 [ext_resource path="res://Audio Files/SFX/running_on_grass.smp" type="Sample" id=9]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -238,7 +238,7 @@ samples/running_on_grass = {
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 8 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1.21765, 0, 0, 2.05515, -4.25429, -6.33307 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -262,7 +262,7 @@ __meta__ = {
 
 transform/pos = Vector2( -4.25429, -6.33307 )
 transform/scale = Vector2( 1.21765, 2.05515 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 

@@ -15,7 +15,6 @@ var direction = ""
 var current_animation = ""
 var new_animation = "Idle"
 var bandaged
-var collider
 
 var left_limit = -10000000
 var right_limit = 10000000
@@ -102,7 +101,7 @@ func _fixed_process(delta):
 		motion = velocity * delta
 		motion = move(motion)
 		
-		if (feet.is_colliding()):
+		if (is_colliding()):
 			var n = get_collision_normal()
 			motion = n.slide(motion)
 			velocity = n.slide(velocity)
@@ -119,7 +118,7 @@ func _fixed_process(delta):
 #				print("RIGHT GO FAM")
 #			move(motion * delta)
 			move(motion)
-#			collider = feet.get_collider()
+#			var collider = feet.get_collider()
 #			print(collider.get_type())
 #			if(collider extends RigidBody2D):
 #				velocity.x /= 2
