@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Scripts/Pause Menu.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Buttons/Pause_Box.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/8-BIT_Size-38.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://Fonts/l_10646_small.fnt" type="BitmapFont" id=4]
-[ext_resource path="res://Sprites/Buttons/Base_Button.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Buttons/Pressed_Button.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Buttons/Hover_Button.png" type="Texture" id=7]
-[ext_resource path="res://Fonts/8-BIT_Size-26.fnt" type="BitmapFont" id=8]
-[ext_resource path="res://Fonts/8-BIT_Low-Space_20.fnt" type="BitmapFont" id=9]
+[ext_resource path="res://Fonts/8-BIT_Size-22.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://Fonts/8-BIT_Size_18.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://Fonts/l_10646_small.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://Sprites/Buttons/Base_Button.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Buttons/Pressed_Button.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Buttons/Hover_Button.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/8-BIT_Size-26.fnt" type="BitmapFont" id=10]
+[ext_resource path="res://Fonts/8-BIT_Low-Space_20.fnt" type="BitmapFont" id=11]
 
 [node name="Pause_Menu" type="Panel"]
 
@@ -48,17 +50,86 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Restart Scene Button" type="Button" parent="."]
+[node name="Panel" type="Panel" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -61.0
-margin/top = 261.0
-margin/right = 139.0
-margin/bottom = 296.0
+margin/left = 309.0
+margin/top = 131.0
+margin/right = 646.0
+margin/bottom = 425.0
+
+[node name="Controls" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 318.0
+margin/top = 101.0
+margin/right = 640.0
+margin/bottom = 405.0
 custom_fonts/font = ExtResource( 4 )
+text = "Movement
+
+
+
+
+
+
+Use or Interact"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Controls list" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 322.0
+margin/top = 174.0
+margin/right = 640.0
+margin/bottom = 402.0
+custom_fonts/font = ExtResource( 5 )
+text = "Arrow keys
+or
+WASD
+
+
+
+
+
+e"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Restart Scene Button" type="Button" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 200.0
+margin/top = 250.0
+margin/right = 400.0
+margin/bottom = 285.0
+custom_fonts/font = ExtResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -67,20 +138,21 @@ flat = false
 
 [node name="Resume Button" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 139.0
-margin/top = 125.0
-margin/right = 461.0
-margin/bottom = 179.0
+margin/left = -31.0
+margin/top = 131.0
+margin/right = 291.0
+margin/bottom = 185.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
+textures/hover = ExtResource( 9 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -94,48 +166,8 @@ margin/left = 2.0
 margin/top = -2.0
 margin/right = 324.0
 margin/bottom = 52.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 10 )
 text = "Resume"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Restart Game Button" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 139.0
-margin/top = 205.0
-margin/right = 461.0
-margin/bottom = 259.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
-params/resize_mode = 0
-params/stretch_mode = 0
-
-[node name="Text" type="Label" parent="Restart Game Button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 2.0
-margin/top = -1.0
-margin/right = 324.0
-margin/bottom = 53.0
-custom_fonts/font = ExtResource( 9 )
-text = "Restart Game"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -147,20 +179,21 @@ __meta__ = {
 
 [node name="Main Menu Button" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 139.0
-margin/top = 285.0
-margin/right = 461.0
-margin/bottom = 339.0
+margin/left = -31.0
+margin/top = 250.0
+margin/right = 291.0
+margin/bottom = 304.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
+textures/hover = ExtResource( 9 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -174,7 +207,7 @@ margin/left = 2.0
 margin/top = -1.0
 margin/right = 324.0
 margin/bottom = 53.0
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 11 )
 text = "Main Menu"
 align = 1
 valign = 1
@@ -187,20 +220,21 @@ __meta__ = {
 
 [node name="Quit Button" type="TextureButton" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 139.0
-margin/top = 365.0
-margin/right = 461.0
-margin/bottom = 419.0
+margin/left = -31.0
+margin/top = 371.0
+margin/right = 291.0
+margin/bottom = 425.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
+textures/hover = ExtResource( 9 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
@@ -214,7 +248,7 @@ margin/left = 1.0
 margin/top = -2.0
 margin/right = 323.0
 margin/bottom = 52.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 10 )
 text = "Quit"
 align = 1
 valign = 1
@@ -228,8 +262,6 @@ __meta__ = {
 [connection signal="pressed" from="Restart Scene Button" to="." method="_on_Restart_Scene_Button_pressed"]
 
 [connection signal="pressed" from="Resume Button" to="." method="_on_Resume_Button_pressed"]
-
-[connection signal="pressed" from="Restart Game Button" to="." method="_on_Restart_Game_Button_pressed"]
 
 [connection signal="pressed" from="Main Menu Button" to="." method="_on_Main_Menu_Button_pressed"]
 

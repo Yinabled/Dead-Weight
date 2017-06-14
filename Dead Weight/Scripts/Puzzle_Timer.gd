@@ -52,3 +52,7 @@ func _on_Timer_timeout():
 func _on_Retry_Button_pressed():
 	get_node("Retry_Button").hide()
 	Pause_HUD.get_node("Pause_Menu")._on_Restart_Scene_Button_pressed()
+
+
+func restart_puzzle():
+	Stage_manager.change_stage(get_tree().get_current_scene().get_name(), true, true)

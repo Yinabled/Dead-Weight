@@ -1,22 +1,51 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Backgrounds/Outside_Cabin_Background.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Door_Raycasts.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 4.08966, 10 )
+extents = Vector2( 220.642, 10 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.80267, 0.309698, -1.89875, -7.2991, 4.75675, -7.2527, 4.74023, -0.123644 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11.1675, 2.16516 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 29.705 )
 
 [node name="Outside_Cabin" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -1390.92, 394.303 )
+transform/pos = Vector2( -1397.24, 374.074 )
+
+[node name="Door-Cabin" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -1338.16, 380.192 )
+transform/rot = 90.0
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+script/script = ExtResource( 3 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
@@ -24,8 +53,17 @@ transform/pos = Vector2( -1.29641, 519 )
 transform/scale = Vector2( 47.0944, 0.361266 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 7.75072, 0, 0, 0.956691, 0, -211.164 )
+shapes/0/transform = Matrix32( 7.75072, 0, 0, 0.956691, -0.154856, -289.924 )
 shapes/0/trigger = false
+shapes/1/shape = SubResource( 6 )
+shapes/1/transform = Matrix32( 1.5492, 0, 0, 35.7221, 13.649, -307.492 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 0.469538, 0, 0, 21.6826, 15.9759, -520.195 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 0.0655982, 0, 0, 60.9809, 21.6121, -1480.11 )
+shapes/3/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -33,12 +71,37 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+[node name="Ground_Collider" type="CollisionShape2D" parent="Ground"]
 
-transform/pos = Vector2( 0, -211.164 )
+transform/pos = Vector2( -0.154856, -289.924 )
 transform/scale = Vector2( 7.75072, 0.956691 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="CollisionShape2D 2" type="CollisionPolygon2D" parent="Ground"]
+
+transform/pos = Vector2( 13.649, -307.492 )
+transform/scale = Vector2( 1.5492, 35.7221 )
+build_mode = 0
+polygon = Vector2Array( -3.80267, 0.309698, -1.89875, -7.2991, 4.75675, -7.2527, 4.74023, -0.123644 )
+shape_range = Vector2( 1, 1 )
+trigger = false
+
+[node name="CollisionShape2D 3" type="CollisionShape2D" parent="Ground"]
+
+transform/pos = Vector2( 15.9759, -520.195 )
+transform/scale = Vector2( 0.469538, 21.6826 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+
+transform/pos = Vector2( 21.6121, -1480.11 )
+transform/scale = Vector2( 0.0655982, 60.9809 )
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 3
 
 

@@ -22,7 +22,7 @@ func _process(delta):
 
 
 func _input(event):
-	if(Input.is_action_pressed("ui_cancel") && pause_Timer < 0):
+	if(Input.is_action_pressed("ui_cancel") && pause_Timer < 0 && get_tree().get_current_scene().get_name() != "Main_Menu"):
 		_on_Resume_Button_pressed()
 		pause_Timer = animation_Time
 
@@ -56,8 +56,9 @@ func _on_Restart_Game_Button_pressed():
 
 
 func _on_Main_Menu_Button_pressed():
-	#MAKE THIS SEND BACK TO MAIN MENU
-	pass
+	Stage_manager.change_stage("Main_Menu", true, false)
+	self.hide()
+	get_tree().set_pause(false)
 
 
 func _on_Quit_Button_pressed():

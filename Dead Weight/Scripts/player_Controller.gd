@@ -23,7 +23,7 @@ var right_scene
 #   "scene_name": [left, top, right, bottom, ground_height, left_scene, right_scene, left_enter]
 var scene_resources = {
 	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
-	"Outside_Cabin": [-1440, -540, 1440, 540, 402, "Intro", null, true],
+	"Outside_Cabin": [-1440, -540, 1440, 540, 374, "Intro", null, true],
 	"Puzzle_1": [-25, -25, 2100, 2600, 1010, null, null, true]
 }
 
