@@ -6,7 +6,6 @@ onready var stage_anim = Stage_manager.get_node("AnimationPlayer")
 
 
 func _ready():
-	Puzzle_HUD.get_node("Timer_Sprite").stop_timer()
 	Stage_manager.get_node("Rain_Track").play("rain_thunder_heavy")
 	
 	timer.set_wait_time(3)

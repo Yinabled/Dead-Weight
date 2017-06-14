@@ -56,7 +56,7 @@ func _on_Restart_Game_Button_pressed():
 
 
 func _on_Main_Menu_Button_pressed():
-	Stage_manager.change_stage("Main_Menu", true, false)
+	Stage_manager.change_stage("Main_Menu", true, true)
 	self.hide()
 	get_tree().set_pause(false)
 
