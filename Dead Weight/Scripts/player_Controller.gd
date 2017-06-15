@@ -22,12 +22,10 @@ var right_scene
 #Scene intialization resources
 #   "scene_name": [left, top, right, bottom, ground_height, left_scene, right_scene, left_enter]
 var scene_resources = {
-#	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
-#	"Outside_Cabin": [-1440, -540, 1440, 540, 374, "Intro", null, true],
-#	"Puzzle_1": [-25, -25, 2100, 2600, 1010, null, null, true]
 	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
 	"Outside_Cabin": [0, 0, 2880, 1080, 900, "Intro", null, true],
 	"TESTSCENE": [0, 0, 400, 400, 50, null, null, true],
+	"Brain_Space": [10, 0, 5800, 1200, 992, null, null, true, 390],
 	"Puzzle_1": [-25, -25, 2100, 2600, 2100, null, null, true],
 	"Puzzle_2": [-25, -25, 2100, 2600, 2100, null, null, true],
 	"Puzzle_3": [-25, -25, 2100, 2600, 2100, null, null, true]
@@ -159,3 +157,6 @@ func init_scene(var arr):
 	else:
 		set_pos(Vector2(right - 40, ground_height))
 		get_node("Sprite").set_flip_h(true)
+	
+	if (arr.size() == 9):
+		set_pos(Vector2(arr[8], ground_height))

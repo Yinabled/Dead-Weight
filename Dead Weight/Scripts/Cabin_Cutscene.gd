@@ -1,6 +1,6 @@
 extends Node2D
 
-var base_frame_time = 5
+var base_frame_time = 8
 
 onready var timer = get_node("Timer")
 onready var anim_sprite = get_node("AnimPlayer_Sprites")
