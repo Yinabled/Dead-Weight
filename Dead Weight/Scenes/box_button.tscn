@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://Scripts/box_button.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/boxButton.tex" type="Texture" id=2]
+[ext_resource path="res://Sprites/boxButtonPressed.tex" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "button_idle"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "button_pressed"
+length = 4.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="box_button" type="Node2D"]
+
+script/script = ExtResource( 1 )
+box_name = "Box"
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.333333, 0.333333 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/button_idle = SubResource( 1 )
+anims/button_pressed = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="top" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -22.5569, 14.5949 )
+transform/rot = 90.0
+transform/scale = Vector2( 1, 0.867365 )
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 25.6818, 10.073 )
+transform/scale = Vector2( 1.82072, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1.37493, 0, 0, 0.254524, -14.1063, 12.4092 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+transform/pos = Vector2( -14.1063, 12.4092 )
+transform/scale = Vector2( 1.37493, 0.254524 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+

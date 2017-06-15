@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Box_rigid.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Moving_platform_triggered.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Disappearing_platform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/box_button.tscn" type="PackedScene" id=11]
 
 [node name="TESTSCENE" type="Node2D"]
 
@@ -31,7 +32,7 @@ transform/pos = Vector2( 388.968, 672.633 )
 
 [node name="StaticBody2D2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 983.772, 621.906 )
+transform/pos = Vector2( 875.772, 621.906 )
 transform/scale = Vector2( 0.0515859, 1 )
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 3 )]
@@ -45,72 +46,72 @@ transform/pos = Vector2( 546.744, 334.741 )
 
 [node name="beer" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 37.0
 
 [node name="beer7" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 37.0
 
 [node name="beer1" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 45.0
 
 [node name="beer7 2" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 45.0
 
 [node name="beer2" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 315.0
 
 [node name="beer7 6" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 315.0
 
 [node name="beer3" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 280.0
 
 [node name="beer7 3" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 280.0
 
 [node name="beer4" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 15.0
 
 [node name="beer7 4" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 15.0
 
 [node name="beer5" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 95.0
 
 [node name="beer7 5" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1084.34, 234.691 )
+transform/pos = Vector2( 1554.89, 280.228 )
 transform/rot = 95.0
 
 [node name="beer6" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1089.49, 221.459 )
+transform/pos = Vector2( 1560.04, 266.996 )
 transform/rot = 77.0
 
 [node name="beer7 7" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 1099.78, 203.817 )
+transform/pos = Vector2( 1570.33, 249.354 )
 transform/rot = 260.014
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -159,9 +160,18 @@ move_on_start = false
 [node name="button" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 774.965, 369.11 )
+WAIT_TIME = 0
 
 [node name="Disappearing_platform" parent="." instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 725.094, 291.182 )
+transform/pos = Vector2( 1139.49, 404.2 )
+
+[node name="box_button" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 399.762, 353.567 )
+
+[node name="box_button 2" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1009.76, 900.961 )
 
 

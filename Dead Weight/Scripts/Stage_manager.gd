@@ -33,13 +33,7 @@ func change_stage(new_scene, entering_left, fade):
 	var stage_path = "res://Scenes/" + new_scene + ".tscn"
 	get_tree().change_scene(stage_path)
 	
-	
 	#Setting ambient SOUND/MUSIC
-	if (new_scene == "Main_Menu"):
-		get_node("Main-Menu_Track").play()
-	else:
-		get_node("Main-Menu_Track").stop()
-	
 	if (new_scene == "Intro_cutscene" || new_scene == "Intro"):
 		if (prev_scene != "Intro_cutscene"):
 			get_node("Rain_Track").play("rain_thunder_heavy")
@@ -53,13 +47,16 @@ func change_stage(new_scene, entering_left, fade):
 		get_node("Cabin_Track").stop()
 	
 	if is_puzzle():
-		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
 		if !get_node("Puzzle_Track").is_playing():
 			get_node("Puzzle_Track").play()
 	else:
-		Puzzle_HUD.get_node("Timer_Sprite").stop_timer()
 		get_node("Puzzle_Track").stop()
 	
+	#Set puzzle timer
+	if (new_scene.find("Puzzle") > -1):
+		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
+	else:
+		Puzzle_HUD.get_node("Timer_Sprite").stop_timer()
 	
 	#Fade back in
 	if (prev_scene == "Intro_cutscene"):
