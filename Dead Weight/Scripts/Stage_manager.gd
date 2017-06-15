@@ -4,7 +4,7 @@ onready var white = get_node("Overlay/Texture_White")
 onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
 var player_cutscene = true
-var player_bandaged = true
+var player_bandaged = false
 
 var left_enter = true
 var current_scene
