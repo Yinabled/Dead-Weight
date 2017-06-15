@@ -46,8 +46,8 @@ func change_stage(new_scene, entering_left, fade):
 	else:
 		get_node("Rain_Track").stop_all()
 	
-	if (new_scene == "Outside_Cabin"):
-		if (prev_scene != "Inside_Cabin"):
+	if (new_scene == "Outside_Cabin" || new_scene == "Cabin_Cutscene"):
+		if (prev_scene != "Cabin_Cutscene" && prev_scene != "Outside_Cabin"):
 			get_node("Cabin_Track").play()
 	else:
 		get_node("Cabin_Track").stop()
@@ -86,16 +86,28 @@ func set_black(dark):
 
 #Function to fade overlay in or out
 #dark == true for black texture, false for white texture
-#fade_in == true for fade to black/white, false for fade from black/white
-func fade(dark, fade_in):
-	if (dark && fade_in):
+#fade_scene_in == true for fade to black/white, false for fade from black/white
+func fade(dark, fade_scene_in):
+	if (dark && fade_scene_in):
 		anim.play("Fade from black 1s")
 	elif (dark):
 		anim.play("Fade to black 1s")
-	elif (fade_in):
+	elif (fade_scene_in):
 		anim.play("Fade from white 1s")
 	else:
 		anim.play("Fade to white 1s")
+
+func fade_long(dark, fade_scene_in):
+	if (dark && fade_scene_in):
+		anim.play("Fade from black delayed")
+	elif (dark):
+		anim.play("Fade to black 2s")
+	elif (fade_scene_in):
+#		anim.play("Fade from white 1s")
+		pass
+	else:
+#		anim.play("Fade to white 1s")
+		pass
 
 
 func is_puzzle():
