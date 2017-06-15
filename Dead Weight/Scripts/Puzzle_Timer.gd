@@ -46,7 +46,7 @@ func _on_Timer_timeout():
 		get_node("Timer").start()
 	else:
 		set_frame(get_hframes() - 1)
-		#PUZZLE FAILED. RESTART, OR GET SENT BACK TO BRAIN SPACE
+		restart_puzzle()
 
 
 func _on_Retry_Button_pressed():

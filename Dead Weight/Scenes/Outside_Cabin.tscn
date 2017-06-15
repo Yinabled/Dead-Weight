@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://Backgrounds/Outside_Cabin_Background.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Door_Raycasts.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/parallax_cabin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Backgrounds/Outside_Cabin_Background.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Door_Raycasts.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,31 +27,37 @@ extents = Vector2( 10, 29.705 )
 
 [node name="Outside_Cabin" type="Node"]
 
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+layer = -1
+
 [node name="Sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
+visibility/visible = false
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -1397.24, 374.074 )
+z/z = 1
 
 [node name="Door-Cabin" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 749.571, 266.703 )
+transform/pos = Vector2( 2189.57, 806.703 )
 transform/rot = 90.0
 transform/scale = Vector2( 1, 1.06054 )
 enabled = true
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
-transform/pos = Vector2( -1.29641, 519 )
+transform/pos = Vector2( 1438.7, 1059 )
 transform/scale = Vector2( 47.0944, 0.361266 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
