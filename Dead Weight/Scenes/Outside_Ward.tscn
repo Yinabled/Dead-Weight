@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Scripts/Outside_Ward.gd" type="Script" id=1]
+[ext_resource path="res://Backgrounds/Outside_ward.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/gun.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Player_Falling"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 820, 897.62 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.2603, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Outside_Ward" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 820, 897.62 )
+transform/scale = Vector2( 3, 3 )
+
+[node name="Gun" type="Sprite" parent="."]
+
+transform/pos = Vector2( 696.262, 923.622 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Player_Falling = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Ground_and_Walls" type="StaticBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 43.9968, 0, 0, 2.75234, 965.127, 962.618 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 59.7915, 235.54, 565.65 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 41.5976, 1924.4, 657.029 )
+shapes/2/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ground" type="CollisionShape2D" parent="Ground_and_Walls"]
+
+transform/pos = Vector2( 965.127, 962.618 )
+transform/scale = Vector2( 43.9968, 2.75234 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Left_Wall" type="CollisionShape2D" parent="Ground_and_Walls"]
+
+transform/pos = Vector2( 235.54, 565.65 )
+transform/scale = Vector2( 1, 59.7915 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 1
+
+[node name="Right_Wall" type="CollisionShape2D" parent="Ground_and_Walls"]
+
+transform/pos = Vector2( 1924.4, 657.029 )
+transform/scale = Vector2( 1, 41.5976 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

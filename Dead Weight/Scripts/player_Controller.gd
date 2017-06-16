@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+#ORIGINAL SCALE: 0.3918
+
 const GRAVITY = 600.0
 const FALL_ACCEL = 4
 var WALK_SPEED = 300
@@ -23,21 +25,26 @@ var right_scene
 #   "scene_name": [left, top, right, bottom, ground_height, left_scene, right_scene, left_enter]
 var scene_resources = {
 	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
-	"Outside_Cabin": [0, 0, 2880, 1080, 900, "Intro", null, true],
+	"Outside_Cabin": [0, 0, 2880, 1080, 900, "Intro", null, true, 2223, 816],
 	"TESTSCENE": [0, 0, 400, 400, 50, null, null, true],
 	"Brain_Space": [10, 0, 5800, 1200, 992, null, null, true, 390],
 	"Puzzle_1": [-25, -25, 2100, 2600, 2100, null, null, true],
 	"Puzzle_2": [-25, -25, 2100, 2600, 2100, null, null, true],
-	"Puzzle_3": [-25, -25, 2100, 2600, 2100, null, null, true]
+	"Puzzle_3": [-25, -25, 2100, 2600, 2100, null, null, true],
+	#Remaining puzzles go here
+	"Outside_Ward": [0, 0, 1920, 1080, 898, null, null, false],
+	"Final_Memory": [10, 0, 5800, 1200, 992, null, null, true, 390]
 }
 
 
 func _ready():
-	init_scene(scene_resources[get_parent().get_name()])
+	bandaged = Stage_manager.player_bandaged
+	
+	if get_parent().get_name().find("Cutscene") == -1:
+		init_scene(scene_resources[get_parent().get_name()])
 	feet = get_node("Feet")
 	feet.add_exception(self)
 	
-	bandaged = Stage_manager.player_bandaged
 	if bandaged:
 		get_node("AnimationPlayer").play("Idle_bandaged")
 	else:
@@ -101,6 +108,7 @@ func _fixed_process(delta):
 			velocity = n.slide(velocity)
 			move(motion)
 		
+		
 		#Converting animations to bandaged
 		if (new_animation == "Idle" && bandaged):
 			new_animation = "Idle_bandaged"
@@ -113,6 +121,7 @@ func _fixed_process(delta):
 		if (new_animation != current_animation):
 			get_node("AnimationPlayer").play(new_animation)
 			current_animation = new_animation
+		
 		
 		#Checking if the player is exiting the scene
 		if (get_pos().x > right_limit + 24 && right_scene != null):
@@ -139,15 +148,6 @@ func init_scene(var arr):
 	camera.set_limit(2, right)
 	camera.set_limit(3, bottom)
 	
-	if (left_scene != null):
-		left_limit = left
-	else:
-		left_limit = -10000000
-	if (right_scene != null):
-		right_limit = right
-	else:
-		right_limit = 10000000
-	
 	
 	#Starting the player position at whichever side they are entering from
 	left_enter = Stage_manager.left_enter
@@ -160,3 +160,19 @@ func init_scene(var arr):
 	
 	if (arr.size() == 9):
 		set_pos(Vector2(arr[8], ground_height))
+	elif (arr.size() == 10 && Stage_manager.player_bandaged):
+		set_pos(Vector2(arr[8], arr[9]))
+	
+	if (get_tree().get_current_scene().get_name() == "Intro" && bandaged):
+		left_scene = "Outside_Ward"
+		get_tree().get_current_scene().get_node("Left_barrier").set_pos(Vector2(-100000, 0))
+	
+	
+	if (left_scene != null):
+		left_limit = left
+	else:
+		left_limit = -10000000
+	if (right_scene != null):
+		right_limit = right
+	else:
+		right_limit = 10000000

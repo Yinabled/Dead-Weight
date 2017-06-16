@@ -20,15 +20,19 @@ func _ready():
 	player_cutscene = false
 
 
-func change_stage(new_scene, entering_left, fade):
+func change_stage(new_scene, entering_left, fade, white = false):
 	player_cutscene = true
 	var prev_scene = get_tree().get_current_scene().get_name()
 	current_scene = new_scene
 	
 	#Fade out
 	if fade:
-		anim.play("Fade to black 1s")
-		yield(anim, "finished")
+		if white:
+			anim.play("Fade to white 1s")
+			yield(anim, "finished")
+		else:
+			anim.play("Fade to black 1s")
+			yield(anim, "finished")
 	
 	
 	#=============CHANGING SCENE=====================
@@ -37,11 +41,9 @@ func change_stage(new_scene, entering_left, fade):
 	get_tree().change_scene(stage_path)
 	
 	
-	if prev_scene.find("Puzzle") > -1 && new_scene == "Brain_Space":
+	if prev_scene.find("Puzzle") > -1 && !is_puzzle():
 		var puzzle_num = prev_scene
 		puzzle_num.erase(0, 7)
-		print("Found Puzzle")
-		print(puzzle_num)
 		puzzles_complete = puzzle_num
 	
 	
@@ -51,25 +53,39 @@ func change_stage(new_scene, entering_left, fade):
 	else:
 		get_node("Main-Menu_Track").stop()
 	
-	if (new_scene == "Intro_cutscene" || new_scene == "Intro"):
+	if (new_scene == "Intro_cutscene" || new_scene == "Intro") && !get_node("Return_Track").is_playing():
 		if (prev_scene != "Intro_cutscene"):
 			get_node("Rain_Track").play("rain_thunder_heavy")
 	else:
 		get_node("Rain_Track").stop_all()
 	
-	if (new_scene == "Outside_Cabin" || new_scene == "Cabin_Cutscene"):
+	if (new_scene == "Outside_Cabin" || new_scene == "Cabin_Cutscene") && !get_node("Return_Track").is_playing():
 		if (prev_scene != "Cabin_Cutscene" && prev_scene != "Outside_Cabin"):
 			get_node("Cabin_Track").play()
 	else:
 		get_node("Cabin_Track").stop()
 	
+	if (new_scene == "Brain_Space"):
+		get_node("Brain_Space_Track").play()
+	else:
+		get_node("Brain_Space_Track").stop()
+	
+	
+	#Resetting, or disabling, puzzle timer
 	if is_puzzle():
 		Puzzle_HUD.get_node("Timer_Sprite").restart_timer()
-		if !get_node("Puzzle_Track").is_playing():
-			get_node("Puzzle_Track").play()
+		if !get_node("Puzzle_1_Track").is_playing() && !get_node("Puzzle_2_Track").is_playing():
+			var puzzle_num = new_scene
+			puzzle_num.erase(0, 7)
+			if int(puzzle_num) % 2 == 1:
+				get_node("Puzzle_1_Track").play()
+			else:
+				get_node("Puzzle_2_Track").play()
+		
 	else:
 		Puzzle_HUD.get_node("Timer_Sprite").stop_timer()
-		get_node("Puzzle_Track").stop()
+		get_node("Puzzle_1_Track").stop()
+		get_node("Puzzle_2_Track").stop()
 	
 	
 	#Fade back in
@@ -77,8 +93,12 @@ func change_stage(new_scene, entering_left, fade):
 		anim.play("Fade from black delayed")
 		yield(anim, "finished")
 	elif fade:
-		anim.play("Fade from black 1s")
-		yield(anim, "finished")
+		if white:
+			anim.play("Fade from white 1s")
+			yield(anim, "finished")
+		else:
+			anim.play("Fade from black 1s")
+			yield(anim, "finished")
 	
 	player_cutscene = false
 

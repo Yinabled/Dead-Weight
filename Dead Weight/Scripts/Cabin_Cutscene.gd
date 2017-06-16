@@ -13,14 +13,12 @@ onready var Cabin2 = get_node("Cabin_Room_Anim2")
 
 
 func _ready():
-	print(Stage_manager.player_bandaged)
 	Stage_manager.player_bandaged = true
-	print(Stage_manager.player_bandaged)
 	
 	Cabin1.set_opacity(0)
 	Cabin2.set_opacity(0)
 	get_node("MC_Sprite").set_frame(0)
-	get_node("MC_Sprite").set_pos(Vector2(507, 577.8))
+	get_node("MC_Sprite").set_pos(Vector2(297, 612))
 	
 	timer.set_wait_time(1.5)
 	timer.start()
@@ -49,7 +47,7 @@ func _ready():
 	anim_fade1.play("Cabin1_Fade_Out")
 	anim_fade2.play("Cabin2_Fade_In")
 	
-	timer.set_wait_time(base_frame_time + 0)
+	timer.set_wait_time(base_frame_time + 4)
 	timer.start()
 	yield(timer, "timeout")
 	anim_sprite.play("Montage2")
@@ -70,7 +68,13 @@ func _ready():
 	anim_fade1.play("Cabin1_Fade_In")
 	anim_fade2.play("Cabin2_Fade_Out")
 	
-	timer.set_wait_time(base_frame_time + 3)
+	timer.set_wait_time(base_frame_time + 0)
 	timer.start()
 	yield(timer, "timeout")
-	Stage_manager.change_stage("Puzzle_1", true, true)
+	Stage_manager.get_node("Cabin_Track").stop()
+	get_node("SamplePlayer").play("puzzle_entry_build")
+	
+	timer.set_wait_time(1.5)
+	timer.start()
+	yield(timer, "timeout")
+	Stage_manager.change_stage("Puzzle_1", true, true, true)

@@ -1,14 +1,15 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://Scripts/Cabin_Cutscene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/white.jpg" type="Texture" id=2]
 [ext_resource path="res://Backgrounds/Cabin Montage/inside_house.tex" type="Texture" id=3]
-[ext_resource path="res://Backgrounds/Cabin Montage/Montage0.png" type="Texture" id=4]
+[ext_resource path="res://Backgrounds/Cabin Montage/Montage2.png" type="Texture" id=4]
 [ext_resource path="res://Backgrounds/Cabin Montage/Montage1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/falling_anim.tex" type="Texture" id=6]
-[ext_resource path="res://Backgrounds/Cabin Montage/Montage2.png" type="Texture" id=7]
+[ext_resource path="res://Backgrounds/Cabin Montage/Montage0.png" type="Texture" id=7]
 [ext_resource path="res://Backgrounds/Cabin Montage/Montage3.png" type="Texture" id=8]
 [ext_resource path="res://Backgrounds/Cabin Montage/Montage4.png" type="Texture" id=9]
+[ext_resource path="res://Audio Files/SFX/puzzle_entry_build.smp" type="Sample" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -91,7 +92,7 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.9, 1.5, 1.7 ),
 "transitions": FloatArray( 1, 1, 1, 1 ),
 "update": 2,
-"values": [ Vector2( 507, 577.772 ), Vector2( 511, 577.772 ), Vector2( 519, 577.772 ), Vector2( 523, 577.772 ) ]
+"values": [ Vector2( 297, 612 ), Vector2( 319, 611 ), Vector2( 330, 611 ), Vector2( 332, 611 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("MC_Sprite:frame")
@@ -118,7 +119,7 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -152,7 +153,7 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -189,6 +190,15 @@ tracks/0/keys = {
 "values": [ ExtResource( 9 ) ]
 }
 
+[sub_resource type="SampleLibrary" id=11]
+
+samples/puzzle_entry_build = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 10 )
+}
+
 [node name="Cabin_Cutscene" type="Node2D"]
 
 script/script = ExtResource( 1 )
@@ -204,28 +214,28 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="Cabin_Room" type="Sprite" parent="."]
 
 transform/pos = Vector2( 953, 520 )
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="Cabin_Room_Anim1" type="Sprite" parent="."]
 
 visibility/opacity = 0.0
 transform/pos = Vector2( 953, 520 )
-transform/scale = Vector2( 0.333, 0.333 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Cabin_Room_Anim2" type="Sprite" parent="."]
 
 transform/pos = Vector2( 953, 520 )
-transform/scale = Vector2( 0.333, 0.333 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="MC_Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 519, 577.772 )
-transform/scale = Vector2( 1.04704, 1.04704 )
+transform/pos = Vector2( 297, 612 )
+transform/scale = Vector2( 1.55, 1.55 )
 texture = ExtResource( 6 )
 hframes = 5
-frame = 2
 
 [node name="AnimPlayer_Sprites" type="AnimationPlayer" parent="."]
 
@@ -290,7 +300,7 @@ autoplay = ""
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = null
+config/samples = SubResource( 11 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
