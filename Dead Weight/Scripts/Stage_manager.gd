@@ -9,6 +9,8 @@ var player_bandaged = false
 var left_enter = true
 var current_scene
 
+var puzzles_complete = 0
+
 
 func _ready():
 	change_stage(get_tree().get_current_scene().get_name(), true, false)
@@ -28,10 +30,19 @@ func change_stage(new_scene, entering_left, fade):
 		anim.play("Fade to black 1s")
 		yield(anim, "finished")
 	
-	#Changing scene
+	
+	#=============CHANGING SCENE=====================
 	left_enter = entering_left
 	var stage_path = "res://Scenes/" + new_scene + ".tscn"
 	get_tree().change_scene(stage_path)
+	
+	
+	if prev_scene.find("Puzzle") > -1 && new_scene == "Brain_Space":
+		var puzzle_num = prev_scene
+		puzzle_num.erase(0, 7)
+		print("Found Puzzle")
+		print(puzzle_num)
+		puzzles_complete = puzzle_num
 	
 	
 	#Setting ambient SOUND/MUSIC

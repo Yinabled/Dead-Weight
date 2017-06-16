@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Backgrounds/background_paper.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/rorschachtiles.xml" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Moving_platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Disappearing_platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Spike_platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Exit_Raycasts.gd" type="Script" id=7]
 
 [node name="Puzzle_2" type="Node2D"]
 
@@ -214,5 +215,15 @@ transform/pos = Vector2( 675, 1525 )
 [node name="Spike_platform5" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 625, 875 )
+
+[node name="Exit-2" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 2141.98, 4.40571 )
+transform/scale = Vector2( 1, 1.84575 )
+enabled = false
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+script/script = ExtResource( 7 )
 
 

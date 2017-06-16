@@ -70,7 +70,7 @@ func _ready():
 	anim_fade1.play("Cabin1_Fade_In")
 	anim_fade2.play("Cabin2_Fade_Out")
 	
-	timer.set_wait_time(base_frame_time + 0)
+	timer.set_wait_time(base_frame_time + 3)
 	timer.start()
 	yield(timer, "timeout")
 	Stage_manager.change_stage("Puzzle_1", true, true)

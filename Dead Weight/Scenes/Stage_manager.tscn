@@ -154,7 +154,7 @@ tracks/2/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 resource/name = "Fade to black 2s"
 length = 2.0
@@ -191,7 +191,7 @@ tracks/2/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 1.0
 loop = false
@@ -227,7 +227,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="SampleLibrary" id=6]
+[sub_resource type="SampleLibrary" id=7]
 
 samples/rain_thunder_heavy = {
 "db": 0.0,
@@ -249,8 +249,8 @@ root/root = NodePath("..")
 "anims/Fade from black delayed" = SubResource( 2 )
 "anims/Fade from white 1s" = SubResource( 3 )
 "anims/Fade to black 1s" = SubResource( 4 )
-"anims/Fade to black 2s" = SubResource( 7 )
-"anims/Fade to white 1s" = SubResource( 5 )
+"anims/Fade to black 2s" = SubResource( 5 )
+"anims/Fade to white 1s" = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -302,7 +302,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 6 )
+config/samples = SubResource( 7 )
 config/pitch_random = 0.0
 
 [node name="Cabin_Track" type="StreamPlayer" parent="."]
@@ -331,11 +331,11 @@ stream/buffering_ms = 500
 
 stream/stream = ExtResource( 7 )
 stream/play = false
-stream/loop = false
+stream/loop = true
 stream/volume_db = 0.0
 stream/autoplay = false
 stream/paused = false
-stream/loop_restart_time = 0.0
+stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
 
