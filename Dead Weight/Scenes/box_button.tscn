@@ -47,7 +47,7 @@ points = Vector2Array( -14.8386, 2.29472, -10.6844, -2.32939, 10.9125, -2.17161,
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 12.1346, 10 )
+extents = Vector2( 11.9849, 8.54688 )
 
 [sub_resource type="SampleLibrary" id=5]
 
@@ -98,7 +98,7 @@ shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1.13955, 0, 0, 1, -14.2078, 13.1914 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 4 )
-shapes/1/transform = Matrix32( 1.03452, 0, 0, 0.191462, -14.0498, 12.8777 )
+shapes/1/transform = Matrix32( 1.03452, 0, 0, 0.191462, -14.0498, 12.963 )
 shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -121,7 +121,7 @@ trigger = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
-transform/pos = Vector2( -14.0498, 12.8777 )
+transform/pos = Vector2( -14.0498, 12.963 )
 transform/scale = Vector2( 1.03452, 0.191462 )
 shape = SubResource( 4 )
 trigger = false

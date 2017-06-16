@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://Scripts/Final_Memory.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/white.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Backgrounds/Memories/Scene8.tex" type="Texture" id=6]
 [ext_resource path="res://Audio Files/SFX/9_mm_gunshot_v3.smp" type="Sample" id=7]
 [ext_resource path="res://Audio Files/SFX/ears_ringing.smp" type="Sample" id=8]
+[ext_resource path="res://Scenes/Credits.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -143,8 +144,8 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 5698.99, 979.472 )
-transform/scale = Vector2( 2.52426, 2.52426 )
+transform/pos = Vector2( 5701.35, 953.362 )
+transform/scale = Vector2( 2.45043, 2.45043 )
 
 [node name="Fake_Doorway" type="Sprite" parent="."]
 
@@ -300,6 +301,12 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
+
+[node name="Node2D" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 4327.59, -600 )
+transform/scale = Vector2( 2.16714, 2.16714 )
+z/z = 50
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

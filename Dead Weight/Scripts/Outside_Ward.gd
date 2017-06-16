@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 40
+var gun_rise_speed = 32
 
 var triggered = false
 
@@ -22,11 +22,11 @@ func _process(delta):
 		triggered = true
 		Stage_manager.player_cutscene = true
 		Player.get_node("Sprite").set_flip_h(true)
-		timer.set_wait_time(1.5)
+		timer.set_wait_time(4)
 		timer.start()
 	
 	if triggered:
-		get_node("Gun").move_local_y(-delta*speed)
+		get_node("Gun").move_local_y(-delta * gun_rise_speed)
 
 
 func _on_Timer_timeout():

@@ -1,8 +1,9 @@
 extends Node2D
 
-var camera_speed = 115
-var camera_vert_speed = 100
-var moveSpeed = 300
+var camera_speed = 120
+var camera_vert_speed = 75
+var player_movespeed = 300
+var max_credits_height = -480
 
 var triggered = false
 var player_moving = false
@@ -30,14 +31,15 @@ func _process(delta):
 		Stage_manager.player_cutscene = true
 		anim_continue()
 	
-	if triggered && camera.get_pos().x < 4750:
+	if triggered && camera.get_pos().x < 4900:
 		camera.move_local_x(delta * camera_speed)
 	
 	if player_moving:
-		Player.move(Vector2(delta*moveSpeed, 0))
+		Player.move(Vector2(delta * player_movespeed, 0))
 	
-	if camera_moving_up && camera.get_pos().y > 0:
-		camera.move_local_y(delta*camera_vert_speed)
+	if camera_moving_up && camera.get_pos().y > max_credits_height:
+		camera.set_limit(1, camera.get_limit(1) - delta * camera_vert_speed)
+		camera.move_local_y(-delta * camera_vert_speed)
 
 func anim_continue():
 	sprite_anim.play("Player_fadeout")
