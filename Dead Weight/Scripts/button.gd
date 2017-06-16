@@ -17,6 +17,7 @@ func _process(delta):
 	var distanceToPlayer = self.get_pos().distance_to(get_parent().get_node("Player").get_pos())
 	if distanceToPlayer < 80 && Input.is_action_pressed("ui_e") && pressed == false:
 		get_node("Sprite").set_texture(redButtonPressed)
+		get_node("SamplePlayer").play("button_click")
 		emit_signal("button_pressed")
 		pressed = true
 		timer += delta
@@ -24,5 +25,6 @@ func _process(delta):
 		timer += delta
 	elif pressed == true && timer > WAIT_TIME:
 		get_node("Sprite").set_texture(redButton)
+		get_node("SamplePlayer").play("button_unclick")
 		timer = 0
 		pressed = false

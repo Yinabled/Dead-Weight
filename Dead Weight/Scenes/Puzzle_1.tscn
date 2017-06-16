@@ -108,8 +108,8 @@ transform/pos = Vector2( 1975, 225 )
 
 [node name="Exit_1" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 292.45, 2468.14 )
-transform/scale = Vector2( 1, 1.8232 )
+transform/pos = Vector2( 2138.85, 13.3626 )
+transform/scale = Vector2( 1, 1.4365 )
 enabled = true
 cast_to = Vector2( 0, 50 )
 layer_mask = 1

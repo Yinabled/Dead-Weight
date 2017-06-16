@@ -7,9 +7,9 @@
 [ext_resource path="res://Scenes/Disappearing_platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Moving_platform_triggeropen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/button.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Moving_platform_triggered_long.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Moving_platform_triggered.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Spike_platform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Moving_platform_triggered.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Spike_platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Exit_Raycasts.gd" type="Script" id=10]
 
 [node name="Puzzle_3" type="Node2D"]
 
@@ -138,13 +138,13 @@ WAIT_TIME = 14
 
 transform/pos = Vector2( 1425, 1025 )
 z/z = -1
-WAIT_TIME = 16
+WAIT_TIME = 14
 
 [node name="button4" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 475, 1025 )
 z/z = -1
-WAIT_TIME = 16
+WAIT_TIME = 14
 
 [node name="button5" parent="." instance=ExtResource( 7 )]
 
@@ -152,119 +152,129 @@ transform/pos = Vector2( 475, 75 )
 z/z = -1
 WAIT_TIME = 7
 
-[node name="Moving_platform_triggered 2" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 375, 1475 )
-speed_multiplier = 4
-short = false
-connected_button = "button2"
-move_on_start = false
-
-[node name="Moving_platform_triggered7" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 475, 575 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button3"
-move_on_start = false
-
-[node name="Moving_platform_triggered13" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 525, 25 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button4"
-move_on_start = false
-
-[node name="Moving_platform_triggered14" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 525, 75 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button4"
-move_on_start = false
-
-[node name="Moving_platform_triggered8" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 475, 625 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button3"
-move_on_start = false
-
-[node name="Moving_platform_triggered9" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 475, 675 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button3"
-move_on_start = false
-
-[node name="Moving_platform_triggered10" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 475, 725 )
-speed_multiplier = 2
-horizontal = false
-short = false
-connected_button = "button3"
-move_on_start = false
-
-[node name="Moving_platform_triggered3" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 425, 1475 )
-speed_multiplier = 4
-short = false
-connected_button = "button2"
-move_on_start = false
-
-[node name="Moving_platform_triggered5" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 475, 1475 )
-speed_multiplier = 4
-short = false
-connected_button = "button2"
-move_on_start = false
-
-[node name="Moving_platform_triggered6" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 525, 1475 )
-speed_multiplier = 4
-short = false
-connected_button = "button2"
-move_on_start = false
-
-[node name="Moving_platform_triggered4" parent="." instance=ExtResource( 9 )]
+[node name="Moving_platform_triggered4" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 425, 1625 )
 horizontal = false
 connected_button = "button1"
 move_on_start = false
 
-[node name="Moving_platform_triggered11" parent="." instance=ExtResource( 9 )]
+[node name="Moving_platform_triggered11" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 425, 925 )
 horizontal = false
 connected_button = "button5"
 move_on_start = false
 
-[node name="Moving_platform_triggered12" parent="." instance=ExtResource( 9 )]
+[node name="Moving_platform_triggered12" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 425, 975 )
 horizontal = false
 connected_button = "button5"
 move_on_start = false
 
-[node name="Spike_platform" parent="." instance=ExtResource( 10 )]
+[node name="Spike_platform" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 525, 1075 )
 
-[node name="Spike_platform1" parent="." instance=ExtResource( 10 )]
+[node name="Spike_platform1" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 575, 2075 )
+
+[node name="Moving_platform_triggered" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 375, 1475 )
+speed_multiplier = 4
+connected_button = "button2"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered5" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 475, 575 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button3"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered9" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 525, 25 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button4"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered10" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 525, 75 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button4"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered6" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 475, 625 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button3"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered7" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 475, 675 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button3"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered8" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 475, 725 )
+speed_multiplier = 2
+horizontal = false
+connected_button = "button3"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered1" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 425, 1475 )
+speed_multiplier = 4
+connected_button = "button2"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered2" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 475, 1475 )
+speed_multiplier = 4
+connected_button = "button2"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Moving_platform_triggered3" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 525, 1475 )
+speed_multiplier = 4
+connected_button = "button2"
+short_long_vlong = "long"
+move_on_start = false
+
+[node name="Exit_3" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 2137.6, 10.1527 )
+transform/scale = Vector2( 1, 1.53708 )
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 1
+type_mask = 15
+script/script = ExtResource( 10 )
 
 

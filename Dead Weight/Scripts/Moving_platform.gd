@@ -7,6 +7,7 @@ export var speed = 0
 export var speed_multiplier = 3
 export var horizontal = true
 export var short = true
+export var right_first = true
 
 export var move_on_start = true
 export var show_on_start = true
@@ -21,10 +22,7 @@ func _ready():
 		in_puzzle = true
 	
 	if move_on_start:
-		if short:
-			get_node("AnimationPlayer").play("Move 6s")
-		else:
-			get_node("AnimationPlayer").play("Move 12s")
+		move()
 	
 	set_process(true)
 
@@ -40,11 +38,15 @@ func _process(delta):
 	set_pos(get_pos() + movement)
 
 
-func move():	
-	if short:
-		get_node("AnimationPlayer").play("Move 6s")
+func move():
+	if short && right_first:
+		get_node("AnimationPlayer").play("Move right 6s")
+	elif !short && right_first:
+		get_node("AnimationPlayer").play("Move right 12s")
+	elif short && !right_first:
+		get_node("AnimationPlayer").play("Move left 6s")
 	else:
-		get_node("AnimationPlayer").play("Move 12s")
+		get_node("AnimationPlayer").play("Move left 12s")
 
 
 func set_in_puzzle(show_platform):

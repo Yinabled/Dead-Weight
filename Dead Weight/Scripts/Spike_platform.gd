@@ -10,6 +10,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	if top.is_colliding() && !collided:
+	if top.is_colliding() && !collided && top.get_collider().get_name().find("Moving_plat") == -1:
+		get_node("SamplePlayer").play("falling_on_spikes")
 		Puzzle_HUD.get_node("Timer_Sprite").restart_puzzle() #restart puzzle function call
 		collided = true

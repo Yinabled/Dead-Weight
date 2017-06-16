@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Fonts/8-BIT_Size-38.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Fonts/8-BIT_Size-22.fnt" type="BitmapFont" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0664063, 0.0601807, 0.0601807, 1 )
+custom_colors/font_color_shadow = Color( 0.769531, 0.0781555, 0.0781555, 1 )
+text = "Dead Weight"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 36.0
+margin/top = 65.0
+margin/right = 400.0
+margin/bottom = 93.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dominic Calkosz"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 34.0
+margin/top = 108.0
+margin/right = 398.0
+margin/bottom = 146.0
+custom_fonts/font = ExtResource( 2 )
+text = "Augusto Iversen"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 77.0
+margin/top = 193.0
+margin/right = 441.0
+margin/bottom = 231.0
+custom_fonts/font = ExtResource( 2 )
+text = "William Yin"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label5" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 70.0
+margin/top = 149.0
+margin/right = 434.0
+margin/bottom = 187.0
+custom_fonts/font = ExtResource( 2 )
+text = "Jack Lawrie"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

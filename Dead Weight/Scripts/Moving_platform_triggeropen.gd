@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var in_puzzle
+var playing_animation = false
 
 #Speed in pixels per second, adjusted in AnimationPlayer
 export var speed = 0
@@ -15,6 +16,8 @@ export var move_right = true
 
 onready var button = get_parent().get_node(connected_button)
 
+onready var animation = get_node("AnimationPlayer")
+
 func _ready():
 	speed = 0
 	
@@ -25,12 +28,12 @@ func _ready():
 		in_puzzle = true
 	
 	if move_on_start:
-		if short:
-			get_node("AnimationPlayer").play("Move right short")
-		else:
-			get_node("AnimationPlayer").play("Move right long")
+		move()
 	
 	button.connect("button_pressed", self, "_on_button_pressed")
+	button.connect("button_unpressed", self, "_on_button_unpressed")
+	
+	animation.connect("finished", self, "_on_animation_finished")
 	
 	set_process(true)
 
@@ -47,10 +50,15 @@ func _process(delta):
 	set_pos(get_pos() + movement)
 
 func _on_button_pressed():
-	move()
+	if !playing_animation:
+		move()
+
+func _on_animation_finished():
+	playing_animation = false
 
 func move():
-	print(str(move_right))
+#	print(str(move_right))
+	playing_animation = true
 	if move_right:
 		if short:
 			get_node("AnimationPlayer").play("Move right short")
