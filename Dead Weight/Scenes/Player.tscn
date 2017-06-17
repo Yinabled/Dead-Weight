@@ -197,7 +197,7 @@ tracks/3/keys = {
 "values": [ "running_on_grass", "running_on_grass", "" ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 
 resource/name = "Running with Gun"
 length = 0.8
@@ -244,7 +244,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
 length = 0.8
 loop = true
@@ -290,7 +290,7 @@ tracks/3/keys = {
 "values": [ "running_on_grass", "running_on_grass", "" ]
 }
 
-[sub_resource type="SampleLibrary" id=8]
+[sub_resource type="SampleLibrary" id=9]
 
 samples/jumping_on_grass = {
 "db": 2.0,
@@ -383,8 +383,8 @@ anims/Idle_bandaged = SubResource( 4 )
 anims/Jumping = ExtResource( 5 )
 anims/Jumping_bandaged = SubResource( 5 )
 anims/Running = SubResource( 6 )
-"anims/Running with Gun" = SubResource( 9 )
-anims/Running_bandaged = SubResource( 7 )
+"anims/Running with Gun" = SubResource( 7 )
+anims/Running_bandaged = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -398,7 +398,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 0.196146
 config/polyphony = 1
-config/samples = SubResource( 8 )
+config/samples = SubResource( 9 )
 config/pitch_random = 0.0
 __meta__ = {
 "_edit_lock_": true

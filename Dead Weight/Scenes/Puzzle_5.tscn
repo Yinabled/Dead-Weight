@@ -43,7 +43,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1750, 2450 )
+transform/pos = Vector2( 127.186, 2363.03 )
 z/z = 1
 
 [node name="Disappearing_platform7" parent="." instance=ExtResource( 4 )]

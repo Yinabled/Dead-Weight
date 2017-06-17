@@ -1,6 +1,7 @@
 extends Node2D
 
 var max_time = 12
+var switching = false
 
 func _ready():
 	get_node("SamplePlayer").play("camera_shutter_sound")
@@ -18,7 +19,8 @@ func _ready():
 
 
 func _input(event):
-	if(Input.is_action_pressed("ui_e") || Input.is_action_pressed("ui_accept")):
+	if(Input.is_action_pressed("ui_e") || Input.is_action_pressed("ui_accept")) && !switching:
+		switching = true
 		Stage_manager.get_node("Extra_SFX").play("memory_door_opening")
 		Stage_manager.change_stage("Brain_Space", true, true)
 
