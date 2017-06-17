@@ -333,7 +333,9 @@ config/polyphony = 1
 config/samples = SubResource( 7 )
 config/pitch_random = 0.0
 
-[node name="Cabin_Track" type="StreamPlayer" parent="."]
+[node name="Cabin_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 5 )
 stream/play = false
@@ -344,7 +346,9 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Puzzle_1_Track" type="StreamPlayer" parent="."]
+[node name="Puzzle_1_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 6 )
 stream/play = false
@@ -355,7 +359,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Puzzle_2_Track" type="StreamPlayer" parent="."]
+[node name="Puzzle_2_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 7 )
 stream/play = false
@@ -366,7 +372,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Main-Menu_Track" type="StreamPlayer" parent="."]
+[node name="Main-Menu_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 8 )
 stream/play = false
@@ -377,7 +385,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Brain_Space_Track" type="StreamPlayer" parent="."]
+[node name="Brain_Space_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 9 )
 stream/play = false
@@ -388,7 +398,9 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Return_Track" type="StreamPlayer" parent="."]
+[node name="Return_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 10 )
 stream/play = false
@@ -399,7 +411,9 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Ending_Track" type="StreamPlayer" parent="."]
+[node name="Ending_Track" type="StreamPlayer" parent="." groups=[
+"Soundtrack",
+]]
 
 stream/stream = ExtResource( 11 )
 stream/play = false

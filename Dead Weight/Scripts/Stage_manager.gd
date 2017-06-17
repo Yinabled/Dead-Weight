@@ -34,7 +34,6 @@ func change_stage(new_scene, entering_left, fade, white = false):
 			anim.play("Fade to black 1s")
 			yield(anim, "finished")
 	
-	
 	#=============CHANGING SCENE=====================
 	left_enter = entering_left
 	var stage_path = "res://Scenes/" + new_scene + ".tscn"

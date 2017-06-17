@@ -2,6 +2,8 @@ extends Node2D
 
 
 func _ready():
+#	get_tree().call_group(0, "Soundtrack", "stop")
+#	Stage_manager.get_node("Main-Menu_Track").play()
 	pass
 
 
