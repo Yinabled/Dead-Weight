@@ -145,7 +145,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 5701.35, 953.362 )
-transform/scale = Vector2( 2.45043, 2.45043 )
+transform/scale = Vector2( 1.69, 1.69 )
 
 [node name="Fake_Doorway" type="Sprite" parent="."]
 
