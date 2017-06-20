@@ -5,6 +5,8 @@ var total_puzzle_time = 120
 
 var offset = Vector2(-80, 68)
 var visible = false
+var increment_r = 0
+var restarting = false
 
 
 func _ready():
@@ -18,6 +20,20 @@ func _ready():
 	get_node("Timer").set_wait_time(float(total_puzzle_time) / (get_hframes() - 1))
 	
 	set_process(true)
+
+
+func _process(delta):
+	if Input.is_action_pressed("ui_r"):
+		increment_r += 1
+		print(increment_r)
+		print(restarting)
+	else:
+		increment_r = 0
+		restarting = false
+	
+	if increment_r > 45 && !restarting:
+		restarting = true
+		_on_Retry_Button_pressed()
 
 
 func show_timer(showing):
