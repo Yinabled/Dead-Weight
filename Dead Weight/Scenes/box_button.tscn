@@ -39,15 +39,15 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ), ExtResource( 2 ) ]
 }
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -14.8386, 2.29472, -10.6844, -2.32939, 10.9125, -2.17161, 15.2316, 2.29472 )
+points = Vector2Array( -15.3628, 1.63155, -10.7866, -2.19696, 10.9458, -2.19654, 14.9532, 1.64965 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 11.9849, 8.54688 )
+extents = Vector2( 12.4291, 8.54688 )
 
 [sub_resource type="SampleLibrary" id=5]
 
@@ -94,11 +94,11 @@ type_mask = 15
 transform/pos = Vector2( 25.6818, 10.073 )
 transform/scale = Vector2( 1.82072, 1 )
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1.13955, 0, 0, 1, -14.2078, 13.1914 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 4 )
-shapes/1/transform = Matrix32( 1.03452, 0, 0, 0.191462, -14.0498, 12.963 )
+shapes/1/transform = Matrix32( 0.993025, 0, 0, 0.191462, -14.2539, 12.963 )
 shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -115,14 +115,14 @@ __meta__ = {
 transform/pos = Vector2( -14.2078, 13.1914 )
 transform/scale = Vector2( 1.13955, 1 )
 build_mode = 0
-polygon = Vector2Array( -14.8386, 2.29472, -10.6844, -2.32939, 10.9125, -2.17161, 15.2316, 2.29472 )
+polygon = Vector2Array( -15.3628, 1.63155, -10.7866, -2.19696, 10.9458, -2.19654, 14.9532, 1.64965 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
-transform/pos = Vector2( -14.0498, 12.963 )
-transform/scale = Vector2( 1.03452, 0.191462 )
+transform/pos = Vector2( -14.2539, 12.963 )
+transform/scale = Vector2( 0.993025, 0.191462 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 1

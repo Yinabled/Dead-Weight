@@ -35,6 +35,11 @@ func _ready():
 	
 	animation.connect("finished", self, "_on_animation_finished")
 	
+	if short:
+		button.set_WAIT_TIME(2)
+	else:
+		button.set_WAIT_TIME(5)
+	
 	set_process(true)
 
 

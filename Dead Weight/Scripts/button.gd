@@ -28,3 +28,10 @@ func _process(delta):
 		get_node("SamplePlayer").play("button_unclick")
 		timer = 0
 		pressed = false
+
+
+func set_WAIT_TIME(new_wait_time):
+	WAIT_TIME = new_wait_time
+
+func get_WAIT_TIME():
+	return WAIT_TIME

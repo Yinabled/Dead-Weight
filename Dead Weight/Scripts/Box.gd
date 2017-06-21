@@ -2,8 +2,6 @@ extends KinematicBody2D
 var left
 var right
 var bottom
-var motion
-var velocity
 var MOVE_SPEED = 100
 var original_speed = 50
 var GRAVITY = 600
@@ -24,15 +22,14 @@ func _ready():
 	bottom.add_exception(self)
 
 func _fixed_process(delta):
-	var motion = Vector2(0,0)
 	var velocity = Vector2(0,0)
 	
 	if left.is_colliding():
-		motion.x += MOVE_SPEED
+		velocity.x += MOVE_SPEED
 #		print("left")
 	
 	if right.is_colliding():
-		motion.x += -MOVE_SPEED
+		velocity.x += -MOVE_SPEED
 #		print("right")
 		
 #	if left_pull.is_colliding() && Input.is_action_pressed("ui_ctrl") && Input.is_action_pressed("ui_left"):
@@ -44,15 +41,15 @@ func _fixed_process(delta):
 #		print("right pull")
 		
 	if !bottom.is_colliding():
-		motion.y += delta * GRAVITY * fall_speed
+		velocity.y += delta * GRAVITY * fall_speed
 		fall_speed += FALL_ACCEL
 #		print(fall_speed)
 	else:
 		fall_speed = 0
 		
 	if bottom.is_colliding() && bottom.get_collider().get_name().find("Moving_plat") != -1:
-		motion.x += bottom.get_collider().get_linear_velocity().x
-		motion.y += bottom.get_collider().get_linear_velocity().y
+		velocity.x += bottom.get_collider().get_linear_velocity().x
+		velocity.y += bottom.get_collider().get_linear_velocity().y
 	
 	if (left.is_colliding() || right.is_colliding()):
 		#get_node("/root/World/Player").WALK_SPEED = MOVE_SPEED
@@ -60,5 +57,12 @@ func _fixed_process(delta):
 	else:
 		#get_node("/root/World/Player").WALK_SPEED = original_speed
 		pass
-	move(motion * delta)
+	var motion = velocity * delta
+	motion = move(motion)
+	
+	if (is_colliding()):
+		var n = get_collision_normal()
+		motion = n.slide(motion)
+		velocity = n.slide(velocity)
+		move(motion)
 

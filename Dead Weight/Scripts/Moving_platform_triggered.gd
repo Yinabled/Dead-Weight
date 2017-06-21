@@ -35,6 +35,17 @@ func _ready():
 	
 	button.connect("button_pressed", self, "_on_button_pressed")
 	
+	if short_long_vlong == "short":
+		button.set_WAIT_TIME(5)
+	elif short_long_vlong == "long":
+		button.set_WAIT_TIME(12)
+	elif short_long_vlong == "vlong":
+		button.set_WAIT_TIME(19)
+	elif short_long_vlong == "vvlong":
+		button.set_WAIT_TIME(25)
+	else:
+		button.set_WAIT_TIME(5)
+	
 	set_process(true)
 
 
