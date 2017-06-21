@@ -47,13 +47,13 @@ func change_stage(new_scene, entering_left, fade, white = false):
 		puzzles_complete = puzzle_num
 	
 	
-	#Setting ambient SOUND/MUSIC
+	#===============SOUND/MUSIC========================
 	if (new_scene == "Main_Menu"):
 		get_node("Main-Menu_Track").play()
 	else:
 		get_node("Main-Menu_Track").stop()
 	
-	if (new_scene == "Intro_cutscene" || new_scene == "Intro") && !get_node("Return_Track").is_playing():
+	if (new_scene == "Intro") && !get_node("Return_Track").is_playing():
 		if (prev_scene != "Intro_cutscene"):
 			get_node("Rain_Track").play("rain_thunder_heavy")
 	else:
