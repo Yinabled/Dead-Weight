@@ -110,6 +110,50 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Options_Button" type="TextureButton" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 736.0
+margin/top = 521.0
+margin/right = 1058.0
+margin/bottom = 575.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+params/resize_mode = 1
+params/stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Options_Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 7.0
+margin/top = 0.0
+margin/right = 322.0
+margin/bottom = 54.0
+custom_fonts/font = ExtResource( 8 )
+text = "Options"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Quit_Button" type="TextureButton" parent="."]
 
 editor/display_folded = true
@@ -155,6 +199,8 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Play_Game_Button" to="." method="_on_Play_Game_Button_pressed"]
+
+[connection signal="pressed" from="Options_Button" to="." method="_on_Options_Button_pressed"]
 
 [connection signal="pressed" from="Quit_Button" to="." method="_on_Quit_Button_pressed"]
 

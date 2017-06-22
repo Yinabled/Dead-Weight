@@ -2,18 +2,18 @@
 
 [ext_resource path="res://Scripts/Intro_cutscene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Crate.png" type="Texture" id=2]
-[ext_resource path="res://Backgrounds/Memories/scene6.tex" type="Texture" id=3]
+[ext_resource path="res://Backgrounds/Memories/Scene1.png" type="Texture" id=3]
 [ext_resource path="res://Backgrounds/Dead_Weight.png" type="Texture" id=4]
 [ext_resource path="res://Audio Files/SFX/9_mm_gunshot_v3.smp" type="Sample" id=5]
 [ext_resource path="res://Audio Files/SFX/camera_shutter_sound.smp" type="Sample" id=6]
 [ext_resource path="res://Audio Files/SFX/distant_gunshot.smp" type="Sample" id=7]
 [ext_resource path="res://Audio Files/SFX/gun_dropped_on_dirt.smp" type="Sample" id=8]
 [ext_resource path="res://Audio Files/SFX/running_on_grass.smp" type="Sample" id=9]
-[ext_resource path="res://Backgrounds/Memories/Scene1.png" type="Texture" id=10]
-[ext_resource path="res://Backgrounds/Memories/Scene2.png" type="Texture" id=11]
-[ext_resource path="res://Backgrounds/Memories/Scene3.png" type="Texture" id=12]
-[ext_resource path="res://Backgrounds/Memories/Scene4.png" type="Texture" id=13]
-[ext_resource path="res://Backgrounds/Memories/Scene5.tex" type="Texture" id=14]
+[ext_resource path="res://Backgrounds/Memories/Scene2.png" type="Texture" id=10]
+[ext_resource path="res://Backgrounds/Memories/Scene3.png" type="Texture" id=11]
+[ext_resource path="res://Backgrounds/Memories/Scene4.png" type="Texture" id=12]
+[ext_resource path="res://Backgrounds/Memories/Scene5.tex" type="Texture" id=13]
+[ext_resource path="res://Backgrounds/Memories/scene6.tex" type="Texture" id=14]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -51,7 +51,7 @@ samples/running_on_grass = {
 [sub_resource type="Animation" id=2]
 
 resource/name = "Rapid_Montage"
-length = 5.0
+length = 7.5
 loop = false
 step = 0.15
 tracks/0/type = "value"
@@ -59,17 +59,17 @@ tracks/0/path = NodePath("Montage_Frame:texture")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 4.05, 4.2, 4.35, 4.5, 4.65, 4.8 ),
+"times": FloatArray( 6.6, 6.75, 6.9, 7.05, 7.2, 7.35 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Montage_Frame:rect/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 4.05, 4.65, 4.8 ),
+"times": FloatArray( 6.6, 7.2, 7.35 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 2,
 "values": [ Vector2( 240, 0 ), Vector2( -4050, -250 ), Vector2( 0, -250 ) ]
@@ -79,7 +79,7 @@ tracks/2/path = NodePath("SamplePlayer:play/play")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 4.05, 4.2, 4.35, 4.5, 4.65, 4.8 ),
+"times": FloatArray( 6.6, 6.75, 6.9, 7.05, 7.2, 7.35 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 2,
 "values": [ "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound" ]
@@ -89,7 +89,7 @@ tracks/3/path = NodePath("Montage_Frame:visibility/opacity")
 tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = {
-"times": FloatArray( 0, 4.05, 4.95 ),
+"times": FloatArray( 0, 6.6, 7.5 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0.0, 1.0, 0.0 ]
@@ -99,7 +99,7 @@ tracks/4/path = NodePath("Dead_Weight_Text:visibility/opacity")
 tracks/4/interp = 1
 tracks/4/imported = false
 tracks/4/keys = {
-"times": FloatArray( 0, 4.05, 4.95 ),
+"times": FloatArray( 0, 4.5, 7.5 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 1.0, 1.0, 0.0 ]
@@ -254,7 +254,6 @@ stretch_mode = 0
 
 [node name="Dead_Weight_Text" type="TextureFrame" parent="."]
 
-visibility/opacity = 0.0
 rect/scale = Vector2( 1.5, 1.5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true

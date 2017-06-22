@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Scenes/Pause_Menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Options_Menu.tscn" type="PackedScene" id=2]
 
 [node name="Pause_HUD" type="CanvasLayer"]
 
@@ -15,5 +16,12 @@ margin/left = 362.0
 margin/top = 294.0
 margin/right = 962.0
 margin/bottom = 794.0
+
+[node name="Options_Menu" parent="." instance=ExtResource( 2 )]
+
+margin/left = 1132.0
+margin/top = 336.0
+margin/right = 1732.0
+margin/bottom = 686.0
 
 

@@ -60,6 +60,11 @@ func _on_Restart_Game_Button_pressed():
 	get_tree().set_pause(false)
 
 
+func _on_Options_Button_pressed():
+	hide()
+	get_parent().get_node("Options_Menu").show()
+
+
 func _on_Main_Menu_Button_pressed():
 	Stage_manager.change_stage("Main_Menu", true, true)
 	self.hide()
@@ -68,9 +73,3 @@ func _on_Main_Menu_Button_pressed():
 
 func _on_Quit_Button_pressed():
 	get_tree().quit()
-
-
-func _on_Volume_Slider_value_changed(value):
-	Globals.set("audio/stream_volume_scale", int(value/50))
-	Globals.set("audio/fx_volume_scale", int(value/50))
-	print("Should be set to " + str(value))

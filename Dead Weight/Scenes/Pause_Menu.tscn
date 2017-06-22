@@ -31,7 +31,7 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 300, 250 )
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Paused Label" type="Label" parent="."]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -53,14 +53,15 @@ max_lines_visible = -1
 
 [node name="Controls" type="Label" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 318.0
-margin/top = 161.0
+margin/top = 101.0
 margin/right = 640.0
-margin/bottom = 465.0
+margin/bottom = 405.0
 custom_fonts/font = ExtResource( 4 )
 text = "Movement
 
@@ -97,9 +98,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 322.0
-margin/top = 234.0
+margin/top = 174.0
 margin/right = 640.0
-margin/bottom = 462.0
+margin/bottom = 402.0
 custom_fonts/font = ExtResource( 6 )
 text = "Arrow keys
 or
@@ -178,6 +179,47 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Options Button" type="TextureButton" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -31.0
+margin/top = 211.0
+margin/right = 291.0
+margin/bottom = 265.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Text" type="Label" parent="Options Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = -2.0
+margin/right = 324.0
+margin/bottom = 52.0
+custom_fonts/font = ExtResource( 11 )
+text = "Options"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Main Menu Button" type="TextureButton" parent="."]
 
 editor/display_folded = true
@@ -186,9 +228,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -31.0
-margin/top = 250.0
+margin/top = 291.0
 margin/right = 291.0
-margin/bottom = 304.0
+margin/bottom = 345.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -260,52 +302,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Volume Label" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 320.0
-margin/top = 125.0
-margin/right = 640.0
-margin/bottom = 139.0
-custom_fonts/font = ExtResource( 4 )
-text = "VOLUME"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Volume Slider" type="HSlider" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 320.0
-margin/top = 155.0
-margin/right = 640.0
-margin/bottom = 175.0
-range/min = 0.0
-range/max = 200.0
-range/step = 5.0
-range/page = 0.0
-range/value = 50.0
-range/exp_edit = false
-range/rounded = false
-tick_count = 10
-ticks_on_borders = true
-focus_mode = 2
-
 [connection signal="pressed" from="Restart Scene Button" to="." method="_on_Restart_Scene_Button_pressed"]
 
 [connection signal="pressed" from="Resume Button" to="." method="_on_Resume_Button_pressed"]
 
+[connection signal="pressed" from="Options Button" to="." method="_on_Options_Button_pressed"]
+
 [connection signal="pressed" from="Main Menu Button" to="." method="_on_Main_Menu_Button_pressed"]
 
 [connection signal="pressed" from="Quit Button" to="." method="_on_Quit_Button_pressed"]
-
-[connection signal="value_changed" from="Volume Slider" to="." method="_on_Volume_Slider_value_changed"]
 
 
