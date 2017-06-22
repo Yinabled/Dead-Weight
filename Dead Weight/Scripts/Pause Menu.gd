@@ -34,6 +34,7 @@ func _input(event):
 
 func _on_Resume_Button_pressed():
 	if (get_tree().is_paused()):
+		get_parent().get_node("Options_Menu").hide()
 		self.hide()
 		retry_button.hide()
 		
