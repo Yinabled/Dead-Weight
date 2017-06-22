@@ -6,7 +6,7 @@ onready var stage_anim = Stage_manager.get_node("AnimationPlayer")
 
 
 func _ready():
-	get_node("SamplePlayer").set_pan(0, 0)
+	get_node("SamplePlayer").set_pan(0, 0) #Does this line even work...
 	anim.play("Rapid_Montage")
 	yield(anim, "finished")
 	

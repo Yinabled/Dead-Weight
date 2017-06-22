@@ -5,11 +5,12 @@ onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
 var player_cutscene = true
 var player_bandaged = false
+var puzzles_complete = 0
 
 var left_enter = true
 var current_scene
 
-var puzzles_complete = 0
+var changing_stage = false
 
 
 func _ready():
@@ -21,9 +22,18 @@ func _ready():
 
 
 func change_stage(new_scene, entering_left, fade, white = false):
+	if changing_stage:
+		return
+	
+	changing_stage = true
 	player_cutscene = true
 	var prev_scene = get_tree().get_current_scene().get_name()
 	current_scene = new_scene
+	
+	if new_scene == "Intro_cutscene":
+		get_node("Overlay/Dead_Weight_Text").show()
+	else:
+		get_node("Overlay/Dead_Weight_Text").hide()
 	
 	#Fade out
 	if fade:
@@ -100,7 +110,9 @@ func change_stage(new_scene, entering_left, fade, white = false):
 			anim.play("Fade from black 1s")
 			yield(anim, "finished")
 	
+	Stage_manager.get_node("Overlay/Dead_Weight_Text").hide()
 	player_cutscene = false
+	changing_stage = false
 
 
 #parameter == 1 to set screen black, parameter == 0 to set screen white

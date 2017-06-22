@@ -1,18 +1,19 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://Scripts/Intro_cutscene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Crate.png" type="Texture" id=2]
 [ext_resource path="res://Backgrounds/Memories/scene6.tex" type="Texture" id=3]
-[ext_resource path="res://Audio Files/SFX/9_mm_gunshot_v3.smp" type="Sample" id=4]
-[ext_resource path="res://Audio Files/SFX/camera_shutter_sound.smp" type="Sample" id=5]
-[ext_resource path="res://Audio Files/SFX/distant_gunshot.smp" type="Sample" id=6]
-[ext_resource path="res://Audio Files/SFX/gun_dropped_on_dirt.smp" type="Sample" id=7]
-[ext_resource path="res://Audio Files/SFX/running_on_grass.smp" type="Sample" id=8]
-[ext_resource path="res://Backgrounds/Memories/Scene1.png" type="Texture" id=9]
-[ext_resource path="res://Backgrounds/Memories/Scene2.png" type="Texture" id=10]
-[ext_resource path="res://Backgrounds/Memories/Scene3.png" type="Texture" id=11]
-[ext_resource path="res://Backgrounds/Memories/Scene4.png" type="Texture" id=12]
-[ext_resource path="res://Backgrounds/Memories/Scene5.tex" type="Texture" id=13]
+[ext_resource path="res://Backgrounds/Dead_Weight.png" type="Texture" id=4]
+[ext_resource path="res://Audio Files/SFX/9_mm_gunshot_v3.smp" type="Sample" id=5]
+[ext_resource path="res://Audio Files/SFX/camera_shutter_sound.smp" type="Sample" id=6]
+[ext_resource path="res://Audio Files/SFX/distant_gunshot.smp" type="Sample" id=7]
+[ext_resource path="res://Audio Files/SFX/gun_dropped_on_dirt.smp" type="Sample" id=8]
+[ext_resource path="res://Audio Files/SFX/running_on_grass.smp" type="Sample" id=9]
+[ext_resource path="res://Backgrounds/Memories/Scene1.png" type="Texture" id=10]
+[ext_resource path="res://Backgrounds/Memories/Scene2.png" type="Texture" id=11]
+[ext_resource path="res://Backgrounds/Memories/Scene3.png" type="Texture" id=12]
+[ext_resource path="res://Backgrounds/Memories/Scene4.png" type="Texture" id=13]
+[ext_resource path="res://Backgrounds/Memories/Scene5.tex" type="Texture" id=14]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -20,37 +21,37 @@ samples/9_mm_gunshot_v3 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 4 )
+"sample": ExtResource( 5 )
 }
 samples/camera_shutter_sound = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 5 )
+"sample": ExtResource( 6 )
 }
 samples/distant_gunshot = {
 "db": 0.0,
 "pitch": 0.85,
 "priority": 0,
-"sample": ExtResource( 6 )
+"sample": ExtResource( 7 )
 }
 samples/gun_dropped_on_dirt = {
 "db": -16.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 7 )
+"sample": ExtResource( 8 )
 }
 samples/running_on_grass = {
 "db": -25.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 8 )
+"sample": ExtResource( 9 )
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource/name = "Rapid_Montage"
-length = 2.0
+length = 5.0
 loop = false
 step = 0.15
 tracks/0/type = "value"
@@ -58,17 +59,17 @@ tracks/0/path = NodePath("Montage_Frame:texture")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 1.05, 1.2, 1.35, 1.5, 1.65, 1.8 ),
+"times": FloatArray( 4.05, 4.2, 4.35, 4.5, 4.65, 4.8 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Montage_Frame:rect/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 1.05, 1.65, 1.8 ),
+"times": FloatArray( 4.05, 4.65, 4.8 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 2,
 "values": [ Vector2( 240, 0 ), Vector2( -4050, -250 ), Vector2( 0, -250 ) ]
@@ -78,7 +79,7 @@ tracks/2/path = NodePath("SamplePlayer:play/play")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 1.05, 1.2, 1.35, 1.5, 1.65, 1.8 ),
+"times": FloatArray( 4.05, 4.2, 4.35, 4.5, 4.65, 4.8 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
 "update": 2,
 "values": [ "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound", "camera_shutter_sound" ]
@@ -88,15 +89,24 @@ tracks/3/path = NodePath("Montage_Frame:visibility/opacity")
 tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = {
-"times": FloatArray( 0, 1.05, 1.95 ),
+"times": FloatArray( 0, 4.05, 4.95 ),
 "transitions": FloatArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0.0, 1.0, 0.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dead_Weight_Text:visibility/opacity")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 4.05, 4.95 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource/name = "closer_gunshot_left"
 length = 1.0
 loop = false
 step = 0.1
@@ -121,9 +131,8 @@ tracks/1/keys = {
 "values": [ "9_mm_gunshot_v3" ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource/name = "distant_gunshot_left"
 length = 3.0
 loop = false
 step = 0.1
@@ -148,9 +157,8 @@ tracks/1/keys = {
 "values": [ "distant_gunshot" ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource/name = "gun_dropped_on_dirt"
 length = 0.4
 loop = false
 step = 0.1
@@ -175,9 +183,8 @@ tracks/1/keys = {
 "values": [ "gun_dropped_on_dirt" ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource/name = "running_on_grass"
 length = 3.2
 loop = false
 step = 0.1
@@ -233,6 +240,7 @@ stretch_mode = 0
 
 [node name="Montage_Frame" type="TextureFrame" parent="."]
 
+visibility/opacity = 0.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -240,8 +248,23 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = -250.0
 margin/right = 5760.0
-margin/bottom = 830.0
+margin/bottom = 1190.0
 texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="Dead_Weight_Text" type="TextureFrame" parent="."]
+
+visibility/opacity = 0.0
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1920.0
+margin/bottom = 1440.0
+texture = ExtResource( 4 )
 stretch_mode = 0
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
@@ -266,11 +289,11 @@ default/chorus_send = 0.0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Rapid_Montage = SubResource( 6 )
-anims/closer_gunshot_left = SubResource( 2 )
-anims/distant_gunshot_left = SubResource( 3 )
-anims/gun_dropped_on_dirt = SubResource( 4 )
-anims/running_on_grass = SubResource( 5 )
+anims/Rapid_Montage = SubResource( 2 )
+anims/closer_gunshot_left = SubResource( 3 )
+anims/distant_gunshot_left = SubResource( 4 )
+anims/gun_dropped_on_dirt = SubResource( 5 )
+anims/running_on_grass = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
