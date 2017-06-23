@@ -34,7 +34,6 @@ var scene_resources = {
 	"Puzzle_4": [-25, -25, 2100, 2600, 2513, null, null, true],
 	"Puzzle_5": [-25, -25, 2100, 2600, 2363, null, null, true, 127],
 	"Puzzle_6": [-25, -25, 2100, 2600, 2513, null, null, true],
-	#Remaining puzzles go here
 	"Outside_Ward": [0, 0, 1920, 1080, 898, null, null, false],
 	"Final_Memory": [10, 0, 5800, 1200, 951, null, null, true, 390]
 }

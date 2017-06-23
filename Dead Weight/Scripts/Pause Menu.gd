@@ -12,11 +12,6 @@ func _ready():
 	var y = (Globals.get("display/height") - get_size().y) / 2
 	set_pos(Vector2(x, y))
 	
-#	get_node("Volume Slider").set_value(50 * Globals.get("audio/stream_volume_scale"))
-#	print(Globals.get("audio/stream_volume_scale"))
-#	Globals.set("audio/stream_volume_scale", 6)
-#	print(Globals.get("audio/stream_volume_scale"))
-	
 	self.hide()
 	set_process(true)
 	set_process_input(true)

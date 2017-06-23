@@ -3,17 +3,25 @@ extends Node
 onready var white = get_node("Overlay/Texture_White")
 onready var black = get_node("Overlay/Texture_Black")
 onready var anim = get_node("AnimationPlayer")
+onready var music_tracks = get_tree().get_nodes_in_group("OST")
+var OST_max_volumes ={}
+var user_volume = 1
+var current_track
+
 var player_cutscene = true
 var player_bandaged = false
 var puzzles_complete = 0
 
 var left_enter = true
 var current_scene
-
 var changing_stage = false
 
 
 func _ready():
+	#Initializing OST dictionary
+	for track in music_tracks:
+		OST_max_volumes[track.get_name()] = track.get_volume()
+	
 	change_stage(get_tree().get_current_scene().get_name(), true, false)
 	
 	anim.play("Fade from black 1s")
@@ -35,8 +43,11 @@ func change_stage(new_scene, entering_left, fade, white = false):
 	else:
 		get_node("Overlay/Dead_Weight_Text").hide()
 	
-	#Fade out
+	#Fade out (audio and visual)
 	if fade:
+		if !(new_scene == "Cabin_Cutscene"):
+			fade_tracks()
+		
 		if white:
 			anim.play("Fade to white 1s")
 			yield(anim, "finished")
@@ -103,6 +114,10 @@ func change_stage(new_scene, entering_left, fade, white = false):
 		anim.play("Fade from black delayed")
 		yield(anim, "finished")
 	elif fade:
+		#Track fade-in
+#		if !(new_scene == "Outside_Cabin" || new_scene == "Cabin_Cutscene" || new_scene == "Outside_Ward" || new_scene == "Final_Memory" || new_scene == "Intro"):
+#			fade_tracks(false)
+		
 		if white:
 			anim.play("Fade from white 1s")
 			yield(anim, "finished")
@@ -110,9 +125,38 @@ func change_stage(new_scene, entering_left, fade, white = false):
 			anim.play("Fade from black 1s")
 			yield(anim, "finished")
 	
+	fade_tracks(true, true)
+	
 	Stage_manager.get_node("Overlay/Dead_Weight_Text").hide()
 	player_cutscene = false
 	changing_stage = false
+
+
+func fade_tracks(fade_out = true, reset_volume = false):
+	for track in Stage_manager.music_tracks:
+		if track.is_playing():
+			current_track = track
+	
+	if current_track == null:
+		return
+	
+	var max_volume = OST_max_volumes[current_track.get_name()]
+	
+	if reset_volume:
+		current_track.set_volume(max_volume * user_volume)
+		return
+	
+	var multiplier = 0
+	var increment = 0.05
+	if fade_out:
+		multiplier = user_volume
+		increment = -0.05
+	
+	for i in range(20):
+		multiplier += increment
+		current_track.set_volume(max_volume * multiplier)
+		get_node("Timer").start()
+		yield(get_node("Timer"), "timeout")
 
 
 #parameter == 1 to set screen black, parameter == 0 to set screen white
@@ -158,3 +202,6 @@ func is_puzzle():
 		return true
 	else:
 		return false
+
+func _on_Timer_timeout():
+	pass

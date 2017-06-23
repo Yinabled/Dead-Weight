@@ -66,7 +66,7 @@ func anim_continue():
 	timer.start()
 	yield(timer, "timeout")
 	scene_anim.play("No MC")
-	Player.set_pos(Vector2(4912, 958))
+	Player.set_pos(Vector2(4912, 981))
 	Player.set_opacity(1)
 	Player.get_node("AnimationPlayer").play("Running with Gun")
 	player_moving = true

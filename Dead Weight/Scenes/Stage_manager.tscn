@@ -349,18 +349,22 @@ config/polyphony = 1
 config/samples = SubResource( 7 )
 config/pitch_random = 0.0
 
-[node name="Cabin_Track" type="StreamPlayer" parent="."]
+[node name="Cabin_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 6 )
 stream/play = false
 stream/loop = true
-stream/volume_db = -12.0
+stream/volume_db = -8.0
 stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Puzzle_1_Track" type="StreamPlayer" parent="."]
+[node name="Puzzle_1_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 7 )
 stream/play = false
@@ -371,7 +375,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Puzzle_2_Track" type="StreamPlayer" parent="."]
+[node name="Puzzle_2_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 8 )
 stream/play = false
@@ -382,7 +388,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Main-Menu_Track" type="StreamPlayer" parent="."]
+[node name="Main-Menu_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 9 )
 stream/play = false
@@ -393,7 +401,9 @@ stream/paused = false
 stream/loop_restart_time = 1.0
 stream/buffering_ms = 500
 
-[node name="Brain_Space_Track" type="StreamPlayer" parent="."]
+[node name="Brain_Space_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 10 )
 stream/play = false
@@ -404,7 +414,9 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Return_Track" type="StreamPlayer" parent="."]
+[node name="Return_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 11 )
 stream/play = false
@@ -415,7 +427,9 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="Ending_Track" type="StreamPlayer" parent="."]
+[node name="Ending_Track" type="StreamPlayer" parent="." groups=[
+"OST",
+]]
 
 stream/stream = ExtResource( 12 )
 stream/play = false
@@ -442,5 +456,14 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

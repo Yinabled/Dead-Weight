@@ -14,14 +14,15 @@ func _ready():
 
 
 func _on_Volume_Slider_value_changed(value):
-	Globals.set("audio/stream_volume_scale", int(value/50))
-	Globals.set("audio/fx_volume_scale", int(value/50))
-	print("Should be set to " + str(value))
+	Stage_manager.user_volume = value / 100
+	
+	for track in Stage_manager.music_tracks:
+		var max_volume = Stage_manager.OST_max_volumes[track.get_name()]
+		track.set_volume(value * max_volume / 100)
 
 
 func _on_Fullscreen_Button_toggled(pressed):
 	OS.set_window_fullscreen(pressed)
-	print("Should set to " + str(pressed))
 
 
 func _on_Back_Button_pressed():
