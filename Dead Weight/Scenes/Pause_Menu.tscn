@@ -53,40 +53,47 @@ max_lines_visible = -1
 
 [node name="Controls" type="Label" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 318.0
-margin/top = 101.0
-margin/right = 640.0
-margin/bottom = 405.0
+margin/top = 130.0
+margin/right = 643.0
+margin/bottom = 434.0
 custom_fonts/font = ExtResource( 4 )
 text = "Movement
 
 
 
 
+Door or button
 
 
-Use or Interact"
+
+Restart Puzzle"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Underscore" type="Sprite" parent="Controls"]
 
-transform/pos = Vector2( 159.984, 82.9185 )
+transform/pos = Vector2( 160, 27 )
 transform/scale = Vector2( 0.152595, 0.00661234 )
 texture = ExtResource( 5 )
 modulate = Color( 0.550781, 0.550781, 0.550781, 1 )
 
 [node name="Underscore1" type="Sprite" parent="Controls"]
 
-transform/pos = Vector2( 159.626, 256 )
+transform/pos = Vector2( 160.874, 152 )
+transform/scale = Vector2( 0.222821, 0.00661234 )
+texture = ExtResource( 5 )
+modulate = Color( 0.550781, 0.550781, 0.550781, 1 )
+
+[node name="Underscore2" type="Sprite" parent="Controls"]
+
+transform/pos = Vector2( 160, 252 )
 transform/scale = Vector2( 0.229453, 0.00661234 )
 texture = ExtResource( 5 )
 modulate = Color( 0.550781, 0.550781, 0.550781, 1 )
@@ -98,9 +105,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 322.0
-margin/top = 174.0
+margin/top = 163.0
 margin/right = 640.0
-margin/bottom = 402.0
+margin/bottom = 391.0
 custom_fonts/font = ExtResource( 6 )
 text = "Arrow keys
 or
@@ -108,11 +115,13 @@ WASD
 
 
 
+e
 
 
-e"
+
+
+Hold r"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

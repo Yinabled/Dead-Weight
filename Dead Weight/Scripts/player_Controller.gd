@@ -178,3 +178,10 @@ func init_scene(var arr):
 		right_limit = right
 	else:
 		right_limit = 10000000
+
+
+func set_idle():
+	if bandaged:
+		get_node("AnimationPlayer").play("Idle_bandaged")
+	else:
+		get_node("AnimationPlayer").play("Idle")

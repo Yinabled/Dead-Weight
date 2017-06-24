@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var timer = get_node("Timer")
-onready var player = get_node("Player")
+onready var player = get_node("Kinematic_Player")
 onready var stage_anim = Stage_manager.get_node("AnimationPlayer")
 
 func _ready():

@@ -61,7 +61,7 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Kinematic_Player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 619, 622 )
 transform/scale = Vector2( 1.5, 1.5 )

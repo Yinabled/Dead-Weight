@@ -30,8 +30,11 @@ func _ready():
 
 
 func change_stage(new_scene, entering_left, fade, white = false):
-	if changing_stage:
+	if changing_stage && !get_tree().get_current_scene().get_name() == "Memories":
 		return
+	
+	if get_tree().get_current_scene().has_node("Player"):
+		get_tree().get_current_scene().get_node("Player").set_idle()
 	
 	changing_stage = true
 	player_cutscene = true
@@ -45,7 +48,7 @@ func change_stage(new_scene, entering_left, fade, white = false):
 	
 	#Fade out (audio and visual)
 	if fade:
-		if !(new_scene == "Cabin_Cutscene"):
+		if !(new_scene == "Cabin_Cutscene" || new_scene == "Outside_Cabin" || new_scene == "Intro" || new_scene == "Outside_Ward" || new_scene == "Final_Memory"):
 			fade_tracks()
 		
 		if white:
