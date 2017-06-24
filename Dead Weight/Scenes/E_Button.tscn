@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Sprites/Buttons/e.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/E_Button.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Floating"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:Speed")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5, 1, 1.5 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0, 0.0, -100.0 ]
+}
+
+[node name="E_Button" type="Sprite"]
+
+transform/pos = Vector2( 193.906, 197.23 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+speed_multiplier = 0.6
+Speed = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Floating = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

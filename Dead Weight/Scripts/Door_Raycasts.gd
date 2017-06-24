@@ -1,7 +1,6 @@
 extends RayCast2D
 
-onready var E_button = get_parent().get_node("E_button")
-var button_playing = false
+onready var E_button = get_node("E_Button")
 
 onready var name = get_name()
 var cabin = false
@@ -41,22 +40,7 @@ func _process(delta):
 		set_enabled(false)
 		Stage_manager.change_stage(send_to_scene, true, true)
 	
-	#Displaying 'E' button if applicable
-	if cabin:
-		if is_colliding():
-			E_button.show()
-			if !button_playing:
-				if cabin:
-					E_button.get_node("Anim").play("Floating")
-				else:
-					print("!button_playing and !cabin")
-	#				E_button.get_node("Anim").play("Door_" + str(int(puzzle_num) - 1))
-	#				get_parent().get_node("Anim").play("Door_" + str(int(puzzle_num) - 1))
-					get_parent().get_node("Anim").play("Door_1")
-					print(get_parent().get_node("Anim").get_current_animation())
-				button_playing = true
-		else:
-			E_button.hide()
-			if cabin:
-				E_button.get_node("Anim").stop_all()
-			button_playing = false
+	if is_colliding():
+		E_button.show()
+	else:
+		E_button.hide()
