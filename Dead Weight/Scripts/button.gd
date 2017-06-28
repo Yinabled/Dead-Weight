@@ -1,5 +1,8 @@
 extends Node2D
 
+
+var button_radius = 65
+
 signal button_pressed
 var pressed
 var timer
@@ -15,7 +18,7 @@ func _ready():
 
 func _process(delta):
 	var distanceToPlayer = self.get_pos().distance_to(get_parent().get_node("Player").get_pos())
-	if distanceToPlayer < 80 && Input.is_action_pressed("ui_e") && pressed == false:
+	if distanceToPlayer < button_radius && Input.is_action_pressed("ui_e") && pressed == false:
 		get_node("Sprite").set_texture(redButtonPressed)
 		get_node("SamplePlayer").play("button_click")
 		emit_signal("button_pressed")
@@ -28,6 +31,12 @@ func _process(delta):
 		get_node("SamplePlayer").play("button_unclick")
 		timer = 0
 		pressed = false
+	
+	#Showing E_Button
+	if distanceToPlayer < button_radius:
+		get_node("E_Button").show()
+	else:
+		get_node("E_Button").hide()
 
 
 func set_WAIT_TIME(new_wait_time):

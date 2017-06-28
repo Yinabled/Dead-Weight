@@ -1,6 +1,5 @@
 extends RayCast2D
 
-onready var E_button = get_node("E_Button")
 
 onready var name = get_name()
 var cabin = false
@@ -41,6 +40,6 @@ func _process(delta):
 		Stage_manager.change_stage(send_to_scene, true, true)
 	
 	if is_colliding():
-		E_button.show()
+		get_node("E_Button").show()
 	else:
-		E_button.hide()
+		get_node("E_Button").hide()

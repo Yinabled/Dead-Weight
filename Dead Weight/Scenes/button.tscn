@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/redButtonNew.tex" type="Texture" id=2]
 [ext_resource path="res://Audio Files/wav Files/button_click.smp" type="Sample" id=3]
 [ext_resource path="res://Audio Files/wav Files/button_unclick.smp" type="Sample" id=4]
+[ext_resource path="res://Scenes/E_Button.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -46,5 +47,11 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
+
+[node name="E_Button" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -3.09889, -98.2774 )
+transform/scale = Vector2( 0.5, 0.5 )
+rotated = false
 
 

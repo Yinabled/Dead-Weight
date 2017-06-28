@@ -48,7 +48,7 @@ func change_stage(new_scene, entering_left, fade, white = false):
 	
 	#Fade out (audio and visual)
 	if fade:
-		if !(new_scene == "Cabin_Cutscene" || new_scene == "Outside_Cabin" || new_scene == "Intro" || new_scene == "Outside_Ward" || new_scene == "Final_Memory"):
+		if !(is_puzzle() || new_scene == "Cabin_Cutscene" || new_scene == "Outside_Cabin" || new_scene == "Intro" || new_scene == "Outside_Ward" || new_scene == "Final_Memory"):
 			fade_tracks()
 		
 		if white:

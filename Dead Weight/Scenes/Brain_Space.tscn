@@ -151,7 +151,6 @@ __meta__ = {
 
 [node name="Door-Puzzle_2" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1020.72, 948.351 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.5, 2.5 )
@@ -167,10 +166,10 @@ transform/pos = Vector2( 505, 27 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.3, 1.5 )
 speed_multiplier = 1.5
+rotated = true
 
 [node name="Door-Puzzle_3" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1693.75, 944.338 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.545804, 2.61976 )
@@ -186,10 +185,10 @@ transform/pos = Vector2( 455.268, 24.6101 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.286286, 1.37412 )
 speed_multiplier = 1.5
+rotated = true
 
 [node name="Door-Puzzle_4" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 2419.47, 939.244 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.545804, 2.61976 )
@@ -205,10 +204,10 @@ transform/pos = Vector2( 434.324, 24.9665 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.286286, 1.37412 )
 speed_multiplier = 1.5
+rotated = true
 
 [node name="Door-Puzzle_5" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 3102.3, 940.624 )
 transform/rot = 90.0
 transform/scale = Vector2( 0.545804, 2.61976 )
@@ -224,6 +223,7 @@ transform/pos = Vector2( 433.658, 23.3354 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.286286, 1.37412 )
 speed_multiplier = 1.5
+rotated = true
 
 [node name="Door-Puzzle_6" type="RayCast2D" parent="."]
 
@@ -242,5 +242,6 @@ transform/pos = Vector2( 423.797, 22.0593 )
 transform/rot = -90.0
 transform/scale = Vector2( 0.286286, 1.37412 )
 speed_multiplier = 1.5
+rotated = true
 
 
