@@ -12,7 +12,7 @@ var restarting = false
 func _ready():
 	hide()
 	
-	#Placing timer in top right corner
+	#Placing timer in top left corner
 	var x = offset.x
 	var y = offset.y
 	set_pos(Vector2(x, y))
