@@ -27,7 +27,7 @@ var scene_resources = {
 	"Intro": [0, 0, 2800, 1000, 934, null, "Outside_Cabin", true],
 	"Outside_Cabin": [0, 0, 2880, 1080, 900, "Intro", null, true, 2223, 816],
 	"TESTSCENE": [0, 0, 400, 400, 50, null, null, true],
-	"Brain_Space": [10, 0, 5800, 1200, 992, null, null, true, 390],
+	"Brain_Space": [10, 0, 5800, 1200, 980, null, null, true, 390],
 	"Puzzle_1": [-25, -25, 2100, 2600, 2513, null, null, true],
 	"Puzzle_2": [-25, -25, 2100, 2600, 2513, null, null, true],
 	"Puzzle_3": [-25, -25, 2100, 2600, 2513, null, null, true],

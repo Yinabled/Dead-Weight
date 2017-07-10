@@ -3,7 +3,7 @@ extends Sprite
 #Total time for each puzzle, in seconds
 var total_puzzle_time = 120
 
-var offset = Vector2(-80, 68)
+var offset = Vector2(80, 80)
 var visible = false
 var increment_r = 0
 var restarting = false
@@ -13,7 +13,7 @@ func _ready():
 	hide()
 	
 	#Placing timer in top right corner
-	var x = Globals.get("display/width") + offset.x
+	var x = offset.x
 	var y = offset.y
 	set_pos(Vector2(x, y))
 	
@@ -25,8 +25,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_r"):
 		increment_r += 1
-		print(increment_r)
-		print(restarting)
 	else:
 		increment_r = 0
 		restarting = false
