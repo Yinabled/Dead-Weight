@@ -24,10 +24,10 @@ func _ready():
 	if move_on_start:
 		move()
 	
-	set_process(true)
+	set_fixed_process(true)
 
 
-func _process(delta):
+func _fixed_process(delta):
 	
 	var movement = Vector2()
 	if horizontal:

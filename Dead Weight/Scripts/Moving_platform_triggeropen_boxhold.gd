@@ -46,10 +46,10 @@ func _ready():
 	button.connect("button_pressed", self, "_on_button_pressed")
 	button.connect("button_unpressed", self, "_on_button_unpressed")
 	
-	set_process(true)
+	set_fixed_process(true)
 
 
-func _process(delta):
+func _fixed_process(delta):
 	
 	var pos_shift = Vector2()
 #	var lm = 1
