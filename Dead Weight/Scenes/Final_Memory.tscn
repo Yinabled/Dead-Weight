@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/Final_Memory.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/white.jpg" type="Texture" id=2]
-[ext_resource path="res://Backgrounds/Memories/Scene9.tex" type="Texture" id=3]
+[ext_resource path="res://Backgrounds/Memories/Scene7.tex" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Backgrounds/Memories/Scene7..tex" type="Texture" id=5]
+[ext_resource path="res://Backgrounds/Memories/Scene9.tex" type="Texture" id=5]
 [ext_resource path="res://Backgrounds/Memories/Scene8.tex" type="Texture" id=6]
 [ext_resource path="res://Audio Files/SFX/9_mm_gunshot_v3.smp" type="Sample" id=7]
 [ext_resource path="res://Audio Files/SFX/ears_ringing.smp" type="Sample" id=8]
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 
 [sub_resource type="Animation" id=7]

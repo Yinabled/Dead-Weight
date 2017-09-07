@@ -94,6 +94,8 @@ func change_stage(new_scene, entering_left, fade, white = false):
 	else:
 		get_node("Brain_Space_Track").stop()
 	
+	get_node("Ending_Track").stop()
+	
 	
 	#Resetting, or disabling, puzzle timer
 	if is_puzzle():
